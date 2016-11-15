@@ -373,7 +373,7 @@ pre code {
 }
 .intro-header {
   background: no-repeat center center;
-  background-color: rgba(128, 128, 128, 0.76);
+  background-color: rgb(48, 110, 158);
   background-attachment: scroll;
   -webkit-background-size: 50%;
   -moz-background-size: 50%;
