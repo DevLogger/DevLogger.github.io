@@ -6,11 +6,15 @@ layout: layout
 <!-- <img src="<%= config['url'] %><%= config['root'] %>img/icon_wechat.png" width="0" height="0"> -->
 <!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
 
-<!-- Post Header 
+<!-- Post Header -->
 <style type="text/css">
     header.intro-header{
-        background-image: url('<%= page["header-img"] || config.root + config["header-img"] %>');
-</style>-->
+        background-image: url('<%= config.root + page["header-img"] || config.root + config["header-img"] %>');
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+</style>
 <header class="intro-header" >
     <div class="container">
         <div class="row">

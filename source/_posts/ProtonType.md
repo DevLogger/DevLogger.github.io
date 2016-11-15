@@ -2,6 +2,8 @@
 title: Crie sua API REST com ProtonType
 date: 2016-11-15 14:22:30
 tags:
+header-img: img/proton-1.jpg
+subtitle: Express + Sequelize + TypeScript = ProtonType
 ---
 
 [English](https://github.com/linck/protontype/blob/develop/README_en.md "") / [Português](https://github.com/linck/protontype/blob/develop/README.md "")
