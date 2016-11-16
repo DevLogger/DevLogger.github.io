@@ -373,12 +373,12 @@ pre code {
 }
 .intro-header {
   background: no-repeat center center;
-  background-color: rgba(128, 128, 128, 0.76);
+  background-color: #1f4665;
   background-attachment: scroll;
-  -webkit-background-size: 50%;
-  -moz-background-size: 50%;
-  background-size: 50%;
-  -o-background-size: 50%;
+  -webkit-background-size: 40%;
+  -moz-background-size: 40%;
+  background-size: 40%;
+  -o-background-size: 40%;
   margin-bottom: 0px;
   /* 0 on mobile, modify by Hux */
 }
