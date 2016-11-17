@@ -13,8 +13,6 @@ subtitle: Express + Sequelize + TypeScript = ProtonType
 author: Humberto Machado
 ---
 
-[English](https://github.com/linck/protontype/blob/develop/README_en.md "") / [Português](https://github.com/linck/protontype/blob/develop/README.md "")
-
 ProtonType
 ==========
 
