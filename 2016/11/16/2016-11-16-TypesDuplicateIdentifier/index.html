@@ -13,11 +13,11 @@
 
     <title>
         
-          DevLog
+          TypeScript - Resolvendo o Duplicate identifier error - DevLog
         
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/">
+    <link rel="canonical" href="http://yoursite.com/2016/11/16/2016-11-16-TypesDuplicateIdentifier/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -123,146 +123,115 @@
 
 
     <!-- Main Content -->
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/dev-hd-bg.png')">
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://yoursite.com/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/duplicate-identifier.png');
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+</style>
+<header class="intro-header" >
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1></h1>
-                    <!--<hr class="small">-->
-                    <span class="subheading"></span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#TypeScript" title="TypeScript">TypeScript</a>
+                        
+                    </div>
+                    <h1>TypeScript - Resolvendo o Duplicate identifier error</h1>
+                    <h2 class="subheading">Se livre de uma vez por todas do Duplicate identifier error</h2>
+                    <span class="meta">
+                        Por Humberto Machado em
+                        16-11-2016
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
 
-
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        
-
-<!-- USE SIDEBAR -->
     <!-- Post Container -->
             <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
-            
-                <!-- Main Content -->
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
 
-
-<div class="post-preview">
-
-    <a href="/2016/11/16/2016-11-16-TypesDuplicateIdentifier/">
-        <h2 class="post-title">
-            TypeScript - Resolvendo o Duplicate identifier error
-        </h2>
-        <h3 class="post-subtitle">
-            Se livre de uma vez por todas do Duplicate identifier error
-        </h3>
-        <div class="post-content-preview">
-            TypeScript - Resolvendo o Duplicate identifier errorUm dos problemas mais chatos que você pode encontrar quando for usar TypeScript é:
-1Duplicate identifier...
-ou 
-1message TS4090: Conflicting defi......
-        </div>
-    </a>
-    <p class="post-meta">
-        Por Humberto Machado em
-        16-11-2016
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2016/11/15/ProtonType/">
-        <h2 class="post-title">
-            Crie sua API REST com ProtonType
-        </h2>
-        <h3 class="post-subtitle">
-            Express + Sequelize + TypeScript = ProtonType
-        </h3>
-        <div class="post-content-preview">
-            ProtonTypeUm simples web framework feito em TypeScript.
-O ProtonType tem como objetivo tornar simples e agradável o desensolvimento de APIs REST e criação de modelos de banco de dados. Utilizando E......
-        </div>
-    </a>
-    <p class="post-meta">
-        Por Humberto Machado em
-        15-11-2016
-    </p>
-
-</div>
-<hr>
-
-
-
-<!-- Pager -->
-
-<ul class="pager">
-    
-    
+                <h1 id="TypeScript-Resolvendo-o-Duplicate-identifier-error"><a href="#TypeScript-Resolvendo-o-Duplicate-identifier-error" class="headerlink" title="TypeScript - Resolvendo o Duplicate identifier error"></a>TypeScript - Resolvendo o Duplicate identifier error</h1><p>Um dos problemas mais chatos que você pode encontrar quando for usar TypeScript é:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Duplicate identifier...</div></pre></td></tr></table></figure>
+<p>ou </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">message TS4090: Conflicting definitions for...</div></pre></td></tr></table></figure>
+<p>Isto acontece quando o compilador tenta carregar o mesmo módulo ou definição (.d.ts) mais de uma vez, identificando que este está duplicado. Quando se instala uma dependência via <strong><em>npm install</em></strong>, o <strong><em>npm</em></strong> já identifica se o módulo está baixado evitando duplicação, mas, se você esta usando módulos locais com <strong><em>npm link</em></strong>, é quase certo que terá este problema.</p>
+<p>Este erro não impede que o JavaScript seja gerado, mas aqui pra nós, é muito chato ver milhares de erro no seu console quando mandamos executar ou compilar algo.</p>
+<h2 id="Resolucao"><a href="#Resolucao" class="headerlink" title="Resolução"></a>Resolução</h2><h4 id="Atualize-a-versao-do-TypeScript"><a href="#Atualize-a-versao-do-TypeScript" class="headerlink" title="Atualize a versao do TypeScript"></a>Atualize a versao do TypeScript</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install typescript -g</div></pre></td></tr></table></figure>
+<h4 id="Configuracao-do-compilador"><a href="#Configuracao-do-compilador" class="headerlink" title="Configuração do compilador"></a>Configuração do compilador</h4><p>Coloque esta configuração do seu <strong>tsconfig.json</strong>:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">"compilerOptions" &#123;</div><div class="line">     ....</div><div class="line">    "baseUrl": "./",</div><div class="line">    "paths": &#123;</div><div class="line">        "*": [ "node_modules/@types/*", "*"]</div><div class="line">    &#125;</div><div class="line">   ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Isto informará ao compilador que quando ele for resolver um módulo qualquer, procure primeiro em  <code>.\node_modules\@types\</code> e so depois nos demais locais, evitando a duplicidade do carregamento.</p>
+<h2 id="Referencias"><a href="#Referencias" class="headerlink" title="Referências"></a>Referências</h2><ul>
+<li><a href="https://www.typescriptlang.org/docs/handbook/module-resolution.html" target="_blank" rel="external">https://www.typescriptlang.org/docs/handbook/module-resolution.html</a></li>
+<li><a href="https://github.com/Microsoft/TypeScript/issues/11916#event-853609143" target="_blank" rel="external">https://github.com/Microsoft/TypeScript/issues/11916#event-853609143</a>   </li>
 </ul>
+<p><em>Obrigado <a href="https://github.com/mhegazy" target="_blank" rel="external">@mhegazy</a> pela dica!!</em></p>
 
 
+                <hr>
 
-                <!-- 如果开启评论功能 -->
+                
+
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/2016/11/15/ProtonType/" data-toggle="tooltip" data-placement="top" title="Crie sua API REST com ProtonType">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
                 
 
             </div>
+    <!-- Side Catalog Container -->
+        
+
     <!-- Sidebar Container -->
+
             <div class="
-                col-lg-3 col-lg-offset-0
-                col-md-3 col-md-offset-0
-                col-sm-12
-                col-xs-12
-                sidebar-container
-            ">
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
                 <!-- Featured Tags -->
                 
 
-                <!-- Short About -->
-                <section class="visible-md visible-lg">
-                    <hr><h5><a href="/about/">ABOUT ME</a></h5>
-                    <div class="short-about">
-
-                        
-
-                        
-
-                        <!-- SNS Link -->
-                        <ul class="list-inline">
-                            
-                            
-                            
-
-                            
-
-                            
-
-                            
-                            
-                            
-                            
-                        </ul>
-                    </div>
-                </section>
-                
                 <!-- Friends Blog -->
                 
             </div>
-        
+
+        </div>
     </div>
-</div>
+</article>
+
+
+
+
+
+
+
 
 
     <!-- Footer -->
