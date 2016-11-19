@@ -14,6 +14,27 @@ timezone:
 SEOTitle: DevLog
 header-img: img/dev-hd-bg.png
 header_title:
+sidebar-about-description: Um registro das nossas descobertas nessa infinita viagem que é aprender a programar bem
+
+# Featured Tags
+featured-tags: true                     # whether or not using Feature-Tags
+featured-condition-size: 1              # A tag will be featured if the size of it is more than this condition value
+
+# Friends
+friends: [
+    {
+        title: "Nil Design",
+        href: "http://nildesign.com.br/"
+    },{
+        title: "Kleyson Costa",
+        href: "http://kleysondac.com.br/"
+    }
+]
+
+RSS: true
+github_username:    DevLogger
+twitter_username:   DevLog
+facebook_username:  DevLog
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'

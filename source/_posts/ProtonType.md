@@ -11,6 +11,7 @@ tags:
 header-img: img/proton-1.jpg
 subtitle: Express + Sequelize + TypeScript = ProtonType
 author: Humberto Machado
+comments: true
 ---
 
 ProtonType
