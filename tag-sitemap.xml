@@ -3,42 +3,42 @@
 
     <url>
         <loc>http://yoursite.com/tags/JavaScript/</loc>
-        <lastmod>2016-11-19T00:47:12.565Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/tags/Express/</loc>
-        <lastmod>2016-11-19T00:47:12.565Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/tags/Sequelize/</loc>
-        <lastmod>2016-11-19T00:47:12.565Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/tags/NodeJS/</loc>
-        <lastmod>2016-11-19T00:47:12.565Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/tags/REST/</loc>
-        <lastmod>2016-11-19T00:47:12.565Z</lastmod>
+        <lastmod>2016-11-19T17:11:00.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://yoursite.com/tags/TypeScript/</loc>
-        <lastmod>2016-11-19T00:47:15.393Z</lastmod>
+        <lastmod>2016-11-19T17:11:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/Express/</loc>
+        <lastmod>2016-11-19T17:11:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/Sequelize/</loc>
+        <lastmod>2016-11-19T17:11:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/NodeJS/</loc>
+        <lastmod>2016-11-19T17:11:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/REST/</loc>
+        <lastmod>2016-11-19T17:11:00.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
