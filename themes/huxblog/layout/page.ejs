@@ -37,7 +37,7 @@ layout: layout
                 <% if(config['featured-tags']) { %>
                 <section>
                     <!-- no hr -->
-                    <h5><a href="<%= config.root %>tags/">FEATURED TAGS</a></h5>
+                    <h5><a href="<%= config.root %>tags/">TAGS</a></h5>
                     <div class="tags">
                         <% site.tags.map(function(tag){  %>
                             <% if(tag.length > config['featured-condition-size']) { %>
@@ -156,7 +156,7 @@ layout: layout
                 <% if(config['featured-tags']) { %>
                 <section>
                     <!-- no hr -->
-                    <h5><a href="<%= config.root %>tags/">FEATURED TAGS</a></h5>
+                    <h5><a href="<%= config.root %>tags/">TAGS EM DESTAQUE</a></h5>
                     <div class="tags">
                         <% site.tags.map(function(tag){  %>
                             <% if(tag.length > config['featured-condition-size']) { %>
@@ -264,7 +264,7 @@ layout: layout
                 <!-- Friends Blog -->
                 <% if(config.friends) { %>
                 <hr>
-                <h5>FRIENDS</h5>
+                <h5>PARCEIROS</h5>
                 <ul class="list-inline">
 
                     <% config.friends.forEach(function(friend){ %>

@@ -11,7 +11,7 @@ language:
 timezone:
 
 # Site settings
-SEOTitle: DevLog
+SEOTitle: DevLog Blog
 header-img: img/dev-hd-bg.png
 header_title:
 sidebar-about-description: Um registro das nossas descobertas nessa infinita viagem que é aprender a programar bem
@@ -32,9 +32,16 @@ friends: [
 ]
 
 RSS: true
-github_username:    DevLogger
-twitter_username:   DevLog
-facebook_username:  DevLog
+feed:
+  type: rss2
+  path: feed.xml
+
+sitemap:
+    path: sitemap.xml
+
+github_username: DevLogger
+twitter_username: dev_logger
+disqus_username: devlogg
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
