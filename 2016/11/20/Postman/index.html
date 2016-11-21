@@ -13,11 +13,11 @@
 
     <title>
         
-          TypeScript - Resolvendo o Duplicate Identifier Error - DevLog Blog
+          Testando APIs REST com Postman - DevLog Blog
         
     </title>
 
-    <link rel="canonical" href="http://devlog.com.br/2016/11/16/TypesDuplicateIdentifier/">
+    <link rel="canonical" href="http://devlog.com.br/2016/11/20/Postman/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -138,7 +138,7 @@
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
-        background-image: url('/img/duplicate-identifier.png');
+        background-image: url('/img/postman/postman-hero.jpg');
         -webkit-background-size: cover;
         -moz-background-size: cover;
         background-size: cover;
@@ -151,14 +151,18 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                          <a class="tag" href="/tags/#TypeScript" title="TypeScript">TypeScript</a>
+                          <a class="tag" href="/tags/#Express" title="Express">Express</a>
+                        
+                          <a class="tag" href="/tags/#NodeJS" title="NodeJS">NodeJS</a>
+                        
+                          <a class="tag" href="/tags/#REST" title="REST">REST</a>
                         
                     </div>
-                    <h1>TypeScript - Resolvendo o Duplicate Identifier Error</h1>
-                    <h2 class="subheading">Se livre de uma vez por todas do Duplicate Identifier Error</h2>
+                    <h1>Testando APIs REST com Postman</h1>
+                    <h2 class="subheading">Oh yes, wait a minute mister postman!</h2>
                     <span class="meta">
                         Por Humberto Machado em
-                        16-11-2016
+                        20-11-2016
                     </span>
                 </div>
             </div>
@@ -177,21 +181,49 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="TypeScript-Resolvendo-o-Duplicate-Identifier-Error"><a href="#TypeScript-Resolvendo-o-Duplicate-Identifier-Error" class="headerlink" title="TypeScript - Resolvendo o Duplicate Identifier Error"></a>TypeScript - Resolvendo o Duplicate Identifier Error</h1><p>Um dos problemas mais chatos que você pode encontrar quando for usar TypeScript é:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Duplicate identifier...</div></pre></td></tr></table></figure>
-<p>ou </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">message TS4090: Conflicting definitions for...</div></pre></td></tr></table></figure>
-<p>Isto acontece quando o compilador tenta carregar o mesmo módulo ou definição (.d.ts) mais de uma vez, identificando que este está duplicado. Quando se instala uma dependência via <strong><em>npm install</em></strong>, o <strong><em>npm</em></strong> já identifica se o módulo está baixado evitando duplicação, mas, se você esta usando módulos locais com <strong><em>npm link</em></strong>, é quase certo que terá este problema.</p>
-<p>Este erro não impede que o JavaScript seja gerado, mas aqui pra nós, é muito chato ver milhares de erro no seu console quando mandamos executar ou compilar algo.</p>
-<h2 id="Resolucao"><a href="#Resolucao" class="headerlink" title="Resolução"></a>Resolução</h2><h4 id="Atualize-a-versao-do-TypeScript"><a href="#Atualize-a-versao-do-TypeScript" class="headerlink" title="Atualize a versao do TypeScript"></a>Atualize a versao do TypeScript</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install typescript -g</div></pre></td></tr></table></figure>
-<h4 id="Configuracao-do-compilador"><a href="#Configuracao-do-compilador" class="headerlink" title="Configuração do compilador"></a>Configuração do compilador</h4><p>Coloque esta configuração do seu <strong>tsconfig.json</strong>:</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">"compilerOptions" &#123;</div><div class="line">     ....</div><div class="line">    "baseUrl": "./",</div><div class="line">    "paths": &#123;</div><div class="line">        "*": [ "node_modules/@types/*", "*"]</div><div class="line">    &#125;</div><div class="line">   ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Isto informará ao compilador que quando ele for resolver um módulo qualquer, procure primeiro em  <code>.\node_modules\@types\</code> e so depois nos demais locais, evitando a duplicidade do carregamento.</p>
-<h2 id="Referencias"><a href="#Referencias" class="headerlink" title="Referências"></a>Referências</h2><ul>
-<li><a href="https://www.typescriptlang.org/docs/handbook/module-resolution.html" target="_blank" rel="external">https://www.typescriptlang.org/docs/handbook/module-resolution.html</a></li>
-<li><a href="https://github.com/Microsoft/TypeScript/issues/11916#event-853609143" target="_blank" rel="external">https://github.com/Microsoft/TypeScript/issues/11916#event-853609143</a>   </li>
+                <p>Antes de qualquer coisa coloque esta música pra tocar <a href="https://www.youtube.com/watch?time_continue=15&amp;v=58VIY1gBmns" target="_blank" rel="external">The Beatles - Mr Postman</a>. Caso prefira pode  escutar pelo <a href="https://open.spotify.com/track/5IIBY9M2GxHcVja6DA6wsF" target="_blank" rel="external">Spotify</a></p>
+<p>Agora sim, podemos testar nossa API com o este fantástico chrome app: <a href="https://www.getpostman.com/" target="_blank" rel="external">Postman</a></p>
+<h1 id="Instalacao"><a href="#Instalacao" class="headerlink" title="Instalação"></a>Instalação</h1><p>Como já disse ali em cima, o <a href="https://www.getpostman.com/" target="_blank" rel="external">Postman</a> é um Chrome App, então, caso esteja usando Windows ou Linux você precisara ter o <a href="https://www.google.com/chrome/" target="_blank" rel="external">Chrome instalado</a>. Caso esteja usando Mac poderá usar o app feito com o <a href="http://electron.atom.io/" target="_blank" rel="external">Electron</a> disponibilizado no site do <a href="https://www.getpostman.com/" target="_blank" rel="external">Postman</a>. Então:</p>
+<ol>
+<li>Baixe o Postman aqui: <a href="https://www.getpostman.com/" target="_blank" rel="external">https://www.getpostman.com/</a></li>
+<li>Divirta-se</li>
+</ol>
+<h1 id="Levantando-API-para-teste"><a href="#Levantando-API-para-teste" class="headerlink" title="Levantando API para teste"></a>Levantando API para teste</h1><p>Vamos usar uma API de exemplo já pronta criada em cima do projeto <a href="https://github.com/linck/protontype" target="_blank" rel="external">ProtonType</a>. Falei um pouco sobre ele aqui <a href="http://devlog.com.br/2016/11/15/ProtonType/">neste post</a>. </p>
+<p>Você precisará do <a href="https://nodejs.org/en/" target="_blank" rel="external">NodeJS 6.x</a> ou maior para usar esta API de exemplo. Claro que poderá usar qualquer API que você tenha controle para testar. Caso queira usar esta sugerida siga os passos abaixo:</p>
+<p><strong>Clone o projeto</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/linck/protontype-example.git</div></pre></td></tr></table></figure></p>
+<p><strong>Levante a api</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> protontype-example</div><div class="line">npm install</div><div class="line">npm start</div></pre></td></tr></table></figure></p>
+<p>Esta API nos possibilita criar, alterar, deletar e consultar Tasks e Users.<br>Para ver os endpoints disponíveis acesse no seu browser:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://localhost:3000</div></pre></td></tr></table></figure></p>
+<h1 id="Usando-o-Mr-Postman"><a href="#Usando-o-Mr-Postman" class="headerlink" title="Usando o Mr. Postman!"></a>Usando o Mr. Postman!</h1><p>Nossa API está escutando na porta 3000 e usa https, portanto a base da nossa URL será <strong><a href="https://locahost:3000" target="_blank" rel="external">https://locahost:3000</a></strong></p>
+<p>Ao abrir o Postman iremos nos deparar com a tela a baixo:<br><img src="inicial.png" alt="Initial"></p>
+<h2 id="Criando-um-Usuario"><a href="#Criando-um-Usuario" class="headerlink" title="Criando um Usuário"></a>Criando um Usuário</h2><p>Na tela inicial:</p>
+<ul>
+<li>Escolha a opçao <strong><em>POST</em></strong> </li>
+<li>Coloque a url: <strong><em><a href="https://localhost:3000/users" target="_blank" rel="external">https://localhost:3000/users</a></em></strong></li>
+<li>Vá para a aba <strong><em>body</em></strong> escolha a opção <strong><em>raw</em></strong> e <strong><em>JSON</em></strong></li>
 </ul>
-<p><em>Obrigado <a href="https://github.com/mhegazy" target="_blank" rel="external">@mhegazy</a> pela dica!!</em></p>
+<p>No campo de texto a baixo adicione o JSON abaixo:<br><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"name"</span>: <span class="string">"DevLog"</span>,</div><div class="line">    <span class="attr">"password"</span>: <span class="string">"123456"</span>,</div><div class="line">    <span class="attr">"email"</span>: <span class="string">"devlog@devlog.com.br"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Sua configuração ficará como na figura abaixo:<br><img src="post_user.png" alt="Post User"></p>
+<p>Depois clique em <strong><em>Send</em></strong> para cadastrar um usuário.</p>
+<h2 id="Testando-Autenticacao-do-Usuario"><a href="#Testando-Autenticacao-do-Usuario" class="headerlink" title="Testando Autenticação do Usuário"></a>Testando Autenticação do Usuário</h2><p>Agora vamos testar a autenticação deste usuário cadastrado. Nossa API implementa um tipo de autenticação chamada <a href="https://jwt.io/" target="_blank" rel="external">JWT</a>. Vejamos como fazer isso no Postman.</p>
+<h3 id="Gerando-o-Token"><a href="#Gerando-o-Token" class="headerlink" title="Gerando o Token"></a>Gerando o Token</h3><p>Primeiro devemos solicitar a um token através da url <strong><em><a href="https://localhost:3000/token" target="_blank" rel="external">https://localhost:3000/token</a></em></strong>.</p>
+<p>Coloque esta url no Postman assim como foi feito com o usuário, através do método POST, e enviando o JSON:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"password"</span>: <span class="string">"123456"</span>,</div><div class="line">    <span class="attr">"email"</span>: <span class="string">"devlog@devlog.com.br"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Sua configuração ficará assim:<br><img src="token.png" alt="Token"></p>
+<p>Clique em <strong><em>send</em></strong> e receberá a resposta com um token:<br><img src="token_result.png" alt="Token"></p>
+<p>Pronto, agora você está autenticado. Copie este token e guarde para o próximo passo.</p>
+<h2 id="Criando-uma-Task"><a href="#Criando-uma-Task" class="headerlink" title="Criando uma Task"></a>Criando uma Task</h2><p>Agora vamos criar um task. Usando o método POST envie uma solicitação para url <strong><em><a href="https://localhost:3000/tasks" target="_blank" rel="external">https://localhost:3000/tasks</a></em></strong> com o JSON abaixo:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	<span class="attr">"title"</span>: <span class="string">"Task Teste"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Após clicar em <strong><em>Send</em></strong>, receberemos o resultado:<br><img src="add_task_unauth.png" alt="Token"></p>
+<p>Isso aconteceu porque não informamos na requisição http o <strong><em>token</em></strong> de autenticação gerado no passo anterior. Então vamos configurar.</p>
+<ul>
+<li>Vá na aba <strong><em>Headers</em></strong></li>
+<li>No campo <strong><em>key</em></strong> digite <strong><em>Authorization</em></strong>.</li>
+<li>No campo value coloque <strong><em>JWT [token_gerado]</em></strong> (por exemplo: <strong><em>JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.otx8FgAk8oHHmqY9-dOKmnF3kXOpm2Fxs5Krl985JKI</em></strong>)</li>
+</ul>
+<p><img src="add_task_token.png" alt="Token"></p>
+<p>Com esta configuração, estamos enviado o <strong><em>token</em></strong> que geramos no cabeçalho Authorization do http, possibilitando nossa API autenticar sua requisição. </p>
+<p>Agora sim, clique em <strong><em>Send</em></strong> e teremos uma Task criada!</p>
+<p>Com o Postman você terá uma ótima ferramente para testes de sua API. Agora você pode desbravar as suas outras funcionalidades de acordo com sua necessidade. Teste os outros endpoints da API. Faça bom uso!</p>
 
 
                 <hr>
@@ -200,13 +232,9 @@
 
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2016/11/20/Postman/" data-toggle="tooltip" data-placement="top" title="Testando APIs REST com Postman">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2016/11/15/ProtonType/" data-toggle="tooltip" data-placement="top" title="Crie sua API REST com ProtonType">Next Post &rarr;</a>
+                            <a href="/2016/11/16/TypesDuplicateIdentifier/" data-toggle="tooltip" data-placement="top" title="TypeScript - Resolvendo o Duplicate Identifier Error">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -239,7 +267,11 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#TypeScript" title="TypeScript">TypeScript</a>
+                          <a class="tag" href="/tags/#Express" title="Express">Express</a>
+                        
+                          <a class="tag" href="/tags/#NodeJS" title="NodeJS">NodeJS</a>
+                        
+                          <a class="tag" href="/tags/#REST" title="REST">REST</a>
                         
                     </div>
                 </section>
@@ -271,8 +303,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "devlogg";
-    var disqus_identifier = "http://devlog.com.br/2016/11/16/TypesDuplicateIdentifier/";
-    var disqus_url = "http://devlog.com.br/2016/11/16/TypesDuplicateIdentifier/";
+    var disqus_identifier = "http://devlog.com.br/2016/11/20/Postman/";
+    var disqus_url = "http://devlog.com.br/2016/11/20/Postman/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

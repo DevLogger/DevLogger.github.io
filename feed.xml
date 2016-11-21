@@ -4,17 +4,76 @@
   xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>DevLog</title>
-    <link>http://yoursite.com/</link>
+    <link>http://devlog.com.br/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Sat, 19 Nov 2016 00:47:15 GMT</pubDate>
+    <pubDate>Mon, 21 Nov 2016 00:17:07 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
+      <title>Testando APIs REST com Postman</title>
+      <link>http://devlog.com.br/2016/11/20/Postman/</link>
+      <guid>http://devlog.com.br/2016/11/20/Postman/</guid>
+      <pubDate>Sun, 20 Nov 2016 17:22:30 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;Antes de qualquer coisa coloque esta música pra tocar &lt;a href=&quot;https://www.youtube.com/watch?time_continue=15&amp;amp;v=58VIY1gBmns&quot; target=&quot;
+      
+      </description>
+      
+      <content:encoded><![CDATA[<p>Antes de qualquer coisa coloque esta música pra tocar <a href="https://www.youtube.com/watch?time_continue=15&amp;v=58VIY1gBmns" target="_blank" rel="external">The Beatles - Mr Postman</a>. Caso prefira pode  escutar pelo <a href="https://open.spotify.com/track/5IIBY9M2GxHcVja6DA6wsF" target="_blank" rel="external">Spotify</a></p>
+<p>Agora sim, podemos testar nossa API com o este fantástico chrome app: <a href="https://www.getpostman.com/" target="_blank" rel="external">Postman</a></p>
+<h1 id="Instalacao"><a href="#Instalacao" class="headerlink" title="Instalação"></a>Instalação</h1><p>Como já disse ali em cima, o <a href="https://www.getpostman.com/" target="_blank" rel="external">Postman</a> é um Chrome App, então, caso esteja usando Windows ou Linux você precisara ter o <a href="https://www.google.com/chrome/" target="_blank" rel="external">Chrome instalado</a>. Caso esteja usando Mac poderá usar o app feito com o <a href="http://electron.atom.io/" target="_blank" rel="external">Electron</a> disponibilizado no site do <a href="https://www.getpostman.com/" target="_blank" rel="external">Postman</a>. Então:</p>
+<ol>
+<li>Baixe o Postman aqui: <a href="https://www.getpostman.com/" target="_blank" rel="external">https://www.getpostman.com/</a></li>
+<li>Divirta-se</li>
+</ol>
+<h1 id="Levantando-API-para-teste"><a href="#Levantando-API-para-teste" class="headerlink" title="Levantando API para teste"></a>Levantando API para teste</h1><p>Vamos usar uma API de exemplo já pronta criada em cima do projeto <a href="https://github.com/linck/protontype" target="_blank" rel="external">ProtonType</a>. Falei um pouco sobre ele aqui <a href="http://devlog.com.br/2016/11/15/ProtonType/">neste post</a>. </p>
+<p>Você precisará do <a href="https://nodejs.org/en/" target="_blank" rel="external">NodeJS 6.x</a> ou maior para usar esta API de exemplo. Claro que poderá usar qualquer API que você tenha controle para testar. Caso queira usar esta sugerida siga os passos abaixo:</p>
+<p><strong>Clone o projeto</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/linck/protontype-example.git</div></pre></td></tr></table></figure></p>
+<p><strong>Levante a api</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> protontype-example</div><div class="line">npm install</div><div class="line">npm start</div></pre></td></tr></table></figure></p>
+<p>Esta API nos possibilita criar, alterar, deletar e consultar Tasks e Users.<br>Para ver os endpoints disponíveis acesse no seu browser:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://localhost:3000</div></pre></td></tr></table></figure></p>
+<h1 id="Usando-o-Mr-Postman"><a href="#Usando-o-Mr-Postman" class="headerlink" title="Usando o Mr. Postman!"></a>Usando o Mr. Postman!</h1><p>Nossa API está escutando na porta 3000 e usa https, portanto a base da nossa URL será <strong><a href="https://locahost:3000" target="_blank" rel="external">https://locahost:3000</a></strong></p>
+<p>Ao abrir o Postman iremos nos deparar com a tela a baixo:<br><img src="inicial.png" alt="Initial"></p>
+<h2 id="Criando-um-Usuario"><a href="#Criando-um-Usuario" class="headerlink" title="Criando um Usuário"></a>Criando um Usuário</h2><p>Na tela inicial:</p>
+<ul>
+<li>Escolha a opçao <strong><em>POST</em></strong> </li>
+<li>Coloque a url: <strong><em><a href="https://localhost:3000/users" target="_blank" rel="external">https://localhost:3000/users</a></em></strong></li>
+<li>Vá para a aba <strong><em>body</em></strong> escolha a opção <strong><em>raw</em></strong> e <strong><em>JSON</em></strong></li>
+</ul>
+<p>No campo de texto a baixo adicione o JSON abaixo:<br><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"name"</span>: <span class="string">"DevLog"</span>,</div><div class="line">    <span class="attr">"password"</span>: <span class="string">"123456"</span>,</div><div class="line">    <span class="attr">"email"</span>: <span class="string">"devlog@devlog.com.br"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Sua configuração ficará como na figura abaixo:<br><img src="post_user.png" alt="Post User"></p>
+<p>Depois clique em <strong><em>Send</em></strong> para cadastrar um usuário.</p>
+<h2 id="Testando-Autenticacao-do-Usuario"><a href="#Testando-Autenticacao-do-Usuario" class="headerlink" title="Testando Autenticação do Usuário"></a>Testando Autenticação do Usuário</h2><p>Agora vamos testar a autenticação deste usuário cadastrado. Nossa API implementa um tipo de autenticação chamada <a href="https://jwt.io/" target="_blank" rel="external">JWT</a>. Vejamos como fazer isso no Postman.</p>
+<h3 id="Gerando-o-Token"><a href="#Gerando-o-Token" class="headerlink" title="Gerando o Token"></a>Gerando o Token</h3><p>Primeiro devemos solicitar a um token através da url <strong><em><a href="https://localhost:3000/token" target="_blank" rel="external">https://localhost:3000/token</a></em></strong>.</p>
+<p>Coloque esta url no Postman assim como foi feito com o usuário, através do método POST, e enviando o JSON:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"password"</span>: <span class="string">"123456"</span>,</div><div class="line">    <span class="attr">"email"</span>: <span class="string">"devlog@devlog.com.br"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Sua configuração ficará assim:<br><img src="token.png" alt="Token"></p>
+<p>Clique em <strong><em>send</em></strong> e receberá a resposta com um token:<br><img src="token_result.png" alt="Token"></p>
+<p>Pronto, agora você está autenticado. Copie este token e guarde para o próximo passo.</p>
+<h2 id="Criando-uma-Task"><a href="#Criando-uma-Task" class="headerlink" title="Criando uma Task"></a>Criando uma Task</h2><p>Agora vamos criar um task. Usando o método POST envie uma solicitação para url <strong><em><a href="https://localhost:3000/tasks" target="_blank" rel="external">https://localhost:3000/tasks</a></em></strong> com o JSON abaixo:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	<span class="attr">"title"</span>: <span class="string">"Task Teste"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Após clicar em <strong><em>Send</em></strong>, receberemos o resultado:<br><img src="add_task_unauth.png" alt="Token"></p>
+<p>Isso aconteceu porque não informamos na requisição http o <strong><em>token</em></strong> de autenticação gerado no passo anterior. Então vamos configurar.</p>
+<ul>
+<li>Vá na aba <strong><em>Headers</em></strong></li>
+<li>No campo <strong><em>key</em></strong> digite <strong><em>Authorization</em></strong>.</li>
+<li>No campo value coloque <strong><em>JWT [token_gerado]</em></strong> (por exemplo: <strong><em>JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.otx8FgAk8oHHmqY9-dOKmnF3kXOpm2Fxs5Krl985JKI</em></strong>)</li>
+</ul>
+<p><img src="add_task_token.png" alt="Token"></p>
+<p>Com esta configuração, estamos enviado o <strong><em>token</em></strong> que geramos no cabeçalho Authorization do http, possibilitando nossa API autenticar sua requisição. </p>
+<p>Agora sim, clique em <strong><em>Send</em></strong> e teremos uma Task criada!</p>
+<p>Com o Postman você terá uma ótima ferramente para testes de sua API. Agora você pode desbravar as suas outras funcionalidades de acordo com sua necessidade. Teste os outros endpoints da API. Faça bom uso!</p>
+]]></content:encoded>
+      
+      <comments>http://devlog.com.br/2016/11/20/Postman/#disqus_thread</comments>
+    </item>
+    
+    <item>
       <title>TypeScript - Resolvendo o Duplicate Identifier Error</title>
-      <link>http://yoursite.com/2016/11/16/TypesDuplicateIdentifier/</link>
-      <guid>http://yoursite.com/2016/11/16/TypesDuplicateIdentifier/</guid>
+      <link>http://devlog.com.br/2016/11/16/TypesDuplicateIdentifier/</link>
+      <guid>http://devlog.com.br/2016/11/16/TypesDuplicateIdentifier/</guid>
       <pubDate>Thu, 17 Nov 2016 00:59:42 GMT</pubDate>
       <description>
       
@@ -39,13 +98,13 @@
 <p><em>Obrigado <a href="https://github.com/mhegazy" target="_blank" rel="external">@mhegazy</a> pela dica!!</em></p>
 ]]></content:encoded>
       
-      <comments>http://yoursite.com/2016/11/16/TypesDuplicateIdentifier/#disqus_thread</comments>
+      <comments>http://devlog.com.br/2016/11/16/TypesDuplicateIdentifier/#disqus_thread</comments>
     </item>
     
     <item>
       <title>Crie sua API REST com ProtonType</title>
-      <link>http://yoursite.com/2016/11/15/ProtonType/</link>
-      <guid>http://yoursite.com/2016/11/15/ProtonType/</guid>
+      <link>http://devlog.com.br/2016/11/15/ProtonType/</link>
+      <guid>http://devlog.com.br/2016/11/15/ProtonType/</guid>
       <pubDate>Tue, 15 Nov 2016 17:22:30 GMT</pubDate>
       <description>
       
@@ -86,7 +145,7 @@
 <p><strong>Projeto e guia completo</strong><br><a href="https://github.com/linck/protontype" target="_blank" rel="external">https://github.com/linck/protontype</a></p>
 ]]></content:encoded>
       
-      <comments>http://yoursite.com/2016/11/15/ProtonType/#disqus_thread</comments>
+      <comments>http://devlog.com.br/2016/11/15/ProtonType/#disqus_thread</comments>
     </item>
     
   </channel>

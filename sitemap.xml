@@ -2,17 +2,17 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <sitemap>
-        <loc>http://yoursite.com/post-sitemap.xml</loc>
-        <lastmod>2016-11-19T17:11:47.489Z</lastmod>
+        <loc>http://devlog.com.br/post-sitemap.xml</loc>
+        <lastmod>2016-11-21T00:17:07.990Z</lastmod>
     </sitemap>
 
     <sitemap>
-        <loc>http://yoursite.com/page-sitemap.xml</loc>
+        <loc>http://devlog.com.br/page-sitemap.xml</loc>
         <lastmod>2016-11-17T10:17:30.248Z</lastmod>
     </sitemap>
 
     <sitemap>
-        <loc>http://yoursite.com/tag-sitemap.xml</loc>
+        <loc>http://devlog.com.br/tag-sitemap.xml</loc>
         <lastmod>2016-11-19T17:11:47.489Z</lastmod>
     </sitemap>
 
