@@ -952,3 +952,9 @@ body {
 .page-fullscreen footer .copyright a:hover {
   color: #ddd;
 }
+
+
+ul.share-buttons img{
+  cursor: pointer;
+  margin: 0px;
+}
