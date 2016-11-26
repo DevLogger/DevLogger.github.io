@@ -14,7 +14,7 @@ timezone:
 SEOTitle: DevLog Blog
 header-img: img/dev-hd-bg.png
 header_title:
-sidebar-about-description: Um registro das nossas descobertas nessa infinita viagem que é aprender a programar bem
+sidebar-about-description: Escrevemos um registro das nossas descobertas nessa infinita viagem que é aprender a programar bem
 
 # Featured Tags
 featured-tags: true                     # whether or not using Feature-Tags
