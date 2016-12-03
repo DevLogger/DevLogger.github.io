@@ -44,3 +44,5 @@ console.log(task.title); //> My Task
 ```
 
 Simples! Resumimos o conteudo da classe em uma linha de código.
+
+*Obrigado [Plínio Naves](https://twitter.com/plinionaves) pela dica!*
