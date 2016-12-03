@@ -8,8 +8,29 @@
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Mon, 21 Nov 2016 00:17:07 GMT</pubDate>
+    <pubDate>Sat, 03 Dec 2016 01:55:43 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>TypeScript - Declarando propriedades de uma classe direto no construtor</title>
+      <link>http://devlog.com.br/2016/12/02/ts-constructor-declaration/</link>
+      <guid>http://devlog.com.br/2016/12/02/ts-constructor-declaration/</guid>
+      <pubDate>Sat, 03 Dec 2016 01:27:51 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;O TypeScript nos dá uma funcionalidade legal vinda do C#: declarar as propriedades de uma class direto no construtor. Vamos entender melh
+      
+      </description>
+      
+      <content:encoded><![CDATA[<p>O TypeScript nos dá uma funcionalidade legal vinda do C#: declarar as propriedades de uma class direto no construtor. Vamos entender melhor no exemplo.</p>
+<p>O que normalmente faríamos assim:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Task</span> </span>&#123;</div><div class="line">    public title: string;</div><div class="line">    public done: boolean;</div><div class="line">    public creationDate: <span class="built_in">Date</span>;</div><div class="line">    public finishDate: <span class="built_in">Date</span>;</div><div class="line"></div><div class="line">    <span class="keyword">constructor</span>(title: string, done: boolean, creationDate: Date, finishDate: Date) &#123;</div><div class="line">        <span class="keyword">this</span>.title = title;</div><div class="line">        <span class="keyword">this</span>.done = done;</div><div class="line">        <span class="keyword">this</span>.creationDate = creationDate;</div><div class="line">        <span class="keyword">this</span>.finishDate = finishDate;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> task: Task = <span class="keyword">new</span> Task(<span class="string">'My Task'</span>, <span class="literal">false</span>, <span class="keyword">new</span> <span class="built_in">Date</span>(), <span class="keyword">new</span> <span class="built_in">Date</span>());</div><div class="line"><span class="built_in">console</span>.log(task.title); <span class="comment">//&gt; My Task</span></div></pre></td></tr></table></figure>
+<p>Podemos fazer assim:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Task</span> </span>&#123;</div><div class="line"> <span class="keyword">constructor</span>(public title: string, public done: boolean, public creationDate: Date, public finishDate: Date) &#123;&#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> task: Task = <span class="keyword">new</span> Task(<span class="string">'My Task'</span>, <span class="literal">false</span>, <span class="keyword">new</span> <span class="built_in">Date</span>(), <span class="keyword">new</span> <span class="built_in">Date</span>());</div><div class="line"><span class="built_in">console</span>.log(task.title); <span class="comment">//&gt; My Task</span></div></pre></td></tr></table></figure></p>
+<p>Simples! Resumimos o conteudo da classe em uma linha de código.</p>
+]]></content:encoded>
+      
+      <comments>http://devlog.com.br/2016/12/02/ts-constructor-declaration/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Testando APIs REST com Postman</title>
