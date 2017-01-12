@@ -8,8 +8,34 @@
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Sat, 03 Dec 2016 01:55:43 GMT</pubDate>
+    <pubDate>Thu, 12 Jan 2017 02:12:40 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Usando Emmet Snippets no VSCode</title>
+      <link>http://devlog.com.br/2017/01/11/emmet-snippets/</link>
+      <guid>http://devlog.com.br/2017/01/11/emmet-snippets/</guid>
+      <pubDate>Thu, 12 Jan 2017 01:52:32 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;Você conhece o Emmet Snippets? Ele é muito legal, permite escrevermos códigos html repetitivos usando expressões simples.&lt;br&gt;O VSCode nos
+      
+      </description>
+      
+      <content:encoded><![CDATA[<p>Você conhece o Emmet Snippets? Ele é muito legal, permite escrevermos códigos html repetitivos usando expressões simples.<br>O VSCode nos permite usar essa maravilha, somente por escrevermos a expressão e apertamos Tab. Veja abaixo:</p>
+<p><img src="emmet1.gif" alt="Emmet1"></p>
+<p><img src="emmet2.gif" alt="Emmet1"></p>
+<p>Simples não é?</p>
+<p>Agora é só se divertir olhando a infinidade de expressões que podemos usar aqui: <a href="http://docs.emmet.io/cheat-sheet/" target="_blank" rel="external">http://docs.emmet.io/cheat-sheet/</a></p>
+<p>Para saber mais:</p>
+<ul>
+<li><a href="http://docs.emmet.io/" target="_blank" rel="external">http://docs.emmet.io/</a> (Dá uma olhada no vídeo de demonstração)</li>
+<li><a href="https://code.visualstudio.com/Docs/languages/html" target="_blank" rel="external">https://code.visualstudio.com/Docs/languages/html</a></li>
+</ul>
+]]></content:encoded>
+      
+      <comments>http://devlog.com.br/2017/01/11/emmet-snippets/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>TypeScript - Declarando propriedades de uma classe direto no construtor</title>
@@ -27,6 +53,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Task</span> </span>&#123;</div><div class="line">    public title: string;</div><div class="line">    public done: boolean;</div><div class="line">    public creationDate: <span class="built_in">Date</span>;</div><div class="line">    public finishDate: <span class="built_in">Date</span>;</div><div class="line"></div><div class="line">    <span class="keyword">constructor</span>(title: string, done: boolean, creationDate: Date, finishDate: Date) &#123;</div><div class="line">        <span class="keyword">this</span>.title = title;</div><div class="line">        <span class="keyword">this</span>.done = done;</div><div class="line">        <span class="keyword">this</span>.creationDate = creationDate;</div><div class="line">        <span class="keyword">this</span>.finishDate = finishDate;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> task: Task = <span class="keyword">new</span> Task(<span class="string">'My Task'</span>, <span class="literal">false</span>, <span class="keyword">new</span> <span class="built_in">Date</span>(), <span class="keyword">new</span> <span class="built_in">Date</span>());</div><div class="line"><span class="built_in">console</span>.log(task.title); <span class="comment">//&gt; My Task</span></div></pre></td></tr></table></figure>
 <p>Podemos fazer assim:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Task</span> </span>&#123;</div><div class="line"> <span class="keyword">constructor</span>(public title: string, public done: boolean, public creationDate: Date, public finishDate: Date) &#123;&#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> task: Task = <span class="keyword">new</span> Task(<span class="string">'My Task'</span>, <span class="literal">false</span>, <span class="keyword">new</span> <span class="built_in">Date</span>(), <span class="keyword">new</span> <span class="built_in">Date</span>());</div><div class="line"><span class="built_in">console</span>.log(task.title); <span class="comment">//&gt; My Task</span></div></pre></td></tr></table></figure></p>
 <p>Simples! Resumimos o conteudo da classe em uma linha de código.</p>
+<p><em>Obrigado <a href="https://twitter.com/plinionaves" target="_blank" rel="external">Plínio Naves</a> pela dica!</em></p>
 ]]></content:encoded>
       
       <comments>http://devlog.com.br/2016/12/02/ts-constructor-declaration/#disqus_thread</comments>
