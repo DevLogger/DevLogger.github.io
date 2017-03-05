@@ -8,6 +8,7 @@ header-img: img/emmet-title.png
 subtitle: Rápido, eficiente e divertido!
 author: Humberto Machado
 comments: true
+permalink: usando-emmet-vscode
 ---
 
 Você conhece o Emmet Snippets? Ele é muito legal, permite escrevermos códigos html repetitivos usando expressões simples.

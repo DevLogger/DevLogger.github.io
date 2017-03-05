@@ -6,6 +6,7 @@ tags:
 header-img: img/mineconstructor.jpg
 author: Humberto Machado
 comments: true
+permalink: typescript-construtor
 ---
 
 O TypeScript nos dá uma funcionalidade legal vinda do C#: declarar as propriedades de uma class direto no construtor. Vamos entender melhor no exemplo.

@@ -9,6 +9,7 @@ header-img: img/postman/postman-hero.jpg
 subtitle: Oh yes, wait a minute mister postman!
 author: Humberto Machado
 comments: true
+permalink: testando-apis-rest-postman
 ---
 
 Antes de qualquer coisa coloque esta música pra tocar [The Beatles - Mr Postman](https://www.youtube.com/watch?time_continue=15&v=58VIY1gBmns). Caso prefira pode  escutar pelo [Spotify](https://open.spotify.com/track/5IIBY9M2GxHcVja6DA6wsF)

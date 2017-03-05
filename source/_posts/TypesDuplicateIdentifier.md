@@ -7,6 +7,7 @@ header-img: img/duplicate-identifier.png
 subtitle: Se livre de uma vez por todas do Duplicate Identifier Error
 author: Humberto Machado
 comments: true
+permalink: typescript-duplicate-identifier
 ---
 
 # TypeScript - Resolvendo o Duplicate Identifier Error
