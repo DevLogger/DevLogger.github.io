@@ -13,3 +13,56 @@ comments: true
 permalink: deploy-ionic-heroku
 ---
 
+O Heroku se torna um meio muito útil e free para disponibilizar um build do app Ionic para testes em um servidor na nuvem.
+Pra fazer isso basta criar seguir os passos abaixo:
+
+# Preparando o projeto
+- Criar um repositório no github
+- Criar um projeto npm com a dependencia do express
+
+```cmd
+npm init
+npm install express --save
+```
+
+- Copiar a pasta www do projeto ionic para o projeto criado
+- Criar um servidor em node + express para servir o index.html da pasta www
+
+```javascript
+var express = require('express'),
+    app = express();
+
+app.use(express.static('www'));
+
+// CORS (Cross-Origin Resource Sharing) headers to support Cross-site HTTP requests
+app.all('*', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next();
+});
+
+// API Routes
+// app.get('/blah', routeHandler);
+
+app.set('port', process.env.PORT || 5000);
+
+app.listen(app.get('port'), function () {
+    console.log('Express server listening on port ' + app.get('port'));
+});
+```
+- Commit e push seu projeto no repositório criado
+
+# Fazendo Deploy no Heroku
+
+- Crie uma conta no Heroku
+- Acesse https://dashboard.heroku.com/
+- Vá na opção new > create new app
+- Dê um nome pro projeto e clique em "Create new app"
+- Na sessão "Deployment method" escolha GitHub
+- Escolha o projeto criado nos passos a cima
+- Clique em "Automatic Deploy" para fazer o deploy sempre que fizer um push
+- Clique em em "Deploy Branch"
+- Clique em View
+
+Pronto! Agora é só aproveitar
+

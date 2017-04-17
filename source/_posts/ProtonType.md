@@ -1,5 +1,5 @@
 ---
-title: Crie sua API REST com ProtonType
+title: Crie sua API REST usando Typescript com ProtonType
 date: 2016-11-15 14:22:30
 tags: 
     - JavaScript
@@ -15,47 +15,11 @@ comments: true
 permalink: crie-api-rest-protontype
 ---
 
-ProtonType
-==========
+Protontype é um módulo Node que ajuda na criação de APIs RESTfull. Tem como objetivo facilitar a criação de objetos de banco de dados, rotas, middlewares e autenticação, tudo isso usando Typescript
 
-Um simples web framework feito em TypeScript.
+# Quick Start - Criando uma API em 5 passos
 
-O ProtonType tem como objetivo tornar simples e agradável o desensolvimento de APIs REST e criação de modelos de banco de dados. Utilizando [Express](http://expressjs.com/ "") e [Sequelize ORM](http://docs.sequelizejs.com/ "") ajuda na criação de aplicações web robustas.
-
-Configuração do projeto TypeScript
-====================================
-
-As seguintes configurações no **tsconfig.json** são necessárias para o
-funcionamento.
-
-```json
-
-    {
-      "compilerOptions": {
-        "target": "es6",
-        "module": "commonjs",
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true
-      }
-    }
-    
-```
-
-Instalação
-==========
-```bash
-
-npm install protontype --save
-
-```
-
-**Obs: será necessário ter instalado o NodeJS 6 ou maior**
-
-Quick Start - Criando uma API Completa em 5 passos
-===========
-
-Estrutura de pastas e configurações iniciais
---------
+## Estrutura de pastas e configurações iniciais
 
 ```bash
 
@@ -73,7 +37,7 @@ Criar o arquivo tsconfig.json na raiz do projeto
 
     {
       "compilerOptions": {
-        "target": "es6",
+        "target": "es5",
         "module": "commonjs",
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
@@ -87,8 +51,7 @@ Criar o arquivo tsconfig.json na raiz do projeto
     
 ```
  
-Model
--------
+## Model
 
 Criar um arquivo ParticlesModel.ts
 
@@ -123,8 +86,7 @@ Criar um arquivo ParticlesModel.ts
     
 ```
 
-Router
--------
+## Router
 
 Criar arquivo ParticlesRouter.ts
 
@@ -145,17 +107,16 @@ Criar arquivo ParticlesRouter.ts
 
  
 
-Main
--------
+## Main
 
 Criar arquivo Main.ts
 
 ```javascript
 
     import { ParticlesRouter } from './ParticlesRouter';
-    import { ExpressApplication } from 'protontype';
+    import { ProtonApplication } from 'protontype';
     
-    new ExpressApplication()
+    new ProtonApplication()
         .addRouter(new ParticlesRouter())
         .bootstrap();
         
@@ -170,28 +131,33 @@ Criar arquivo Main.ts
     
 ```
  
-Testando a API
--------
+## Testando a API
 
 Por padrão, a aplicação usará um banco de dados sqlite. 
 Será criado um arquivo proton.sqlite na raiz do projeto.
 
 Os endpoints abaixo já estarão disponíveis:
+
 -   **GET /particles** - Lista todos os registos da tabela Particles
 -   **POST /particles** - Cria um registro na tabela Particles
 -   **GET /particles/:id** - Consulta um registro da tabela Particles
 -   **PUT /particles/:id** - Atualiza um registro da tabela Particles
 -   **DELETE /particles/:id** - Remove um registro da tabela Particles
 
-Poderá testar através do app [Postman](https://www.getpostman.com/ "") ou outro da sua preferência.
+Podera testar através do app [Postman](https://www.getpostman.com/ "") ou outro da sua preferência.
 
 **Código completo do quick start**
 
-https://github.com/linck/proton-quickstart
+<https://github.com/linck/proton-quickstart>
 
-**Exemplo de uso completo**
+## Exemplo
 
-https://github.com/linck/protontype-example
+<https://github.com/linck/protontype-example>
 
-**Projeto e guia completo**
-https://github.com/linck/protontype
+## Projeto
+
+<https://github.com/linck/protontype>
+
+## Documentação 
+
+<https://linck.github.io/protontype-docs>
