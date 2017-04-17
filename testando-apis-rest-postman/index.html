@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="null">
+    <meta name="keyword"  content="undefined">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="icon" href="/img/favicon.png" />
+
+    <title>
+        
+          Testando APIs REST com Postman - DevLog Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://devlog.com.br/testando-apis-rest-postman/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="http://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">DevLog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://devlog.com.br/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/postman/postman-hero.jpg');
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#Express" title="Express">Express</a>
+                        
+                          <a class="tag" href="/tags/#NodeJS" title="NodeJS">NodeJS</a>
+                        
+                          <a class="tag" href="/tags/#REST" title="REST">REST</a>
+                        
+                    </div>
+                    <h1>Testando APIs REST com Postman</h1>
+                    <h2 class="subheading">Oh yes, wait a minute mister postman!</h2>
+                    <span class="meta">
+                        Por Humberto Machado em
+                        20-11-2016
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <p>Antes de qualquer coisa coloque esta música pra tocar <a href="https://www.youtube.com/watch?time_continue=15&amp;v=58VIY1gBmns" target="_blank" rel="external">The Beatles - Mr Postman</a>. Caso prefira pode  escutar pelo <a href="https://open.spotify.com/track/5IIBY9M2GxHcVja6DA6wsF" target="_blank" rel="external">Spotify</a></p>
+<p>Agora sim, podemos testar nossa API com o este fantástico chrome app: <a href="https://www.getpostman.com/" target="_blank" rel="external">Postman</a></p>
+<h1 id="Instalacao"><a href="#Instalacao" class="headerlink" title="Instalação"></a>Instalação</h1><p>Como já disse ali em cima, o <a href="https://www.getpostman.com/" target="_blank" rel="external">Postman</a> é um Chrome App, então, caso esteja usando Windows ou Linux você precisara ter o <a href="https://www.google.com/chrome/" target="_blank" rel="external">Chrome instalado</a>. Caso esteja usando Mac poderá usar o app feito com o <a href="http://electron.atom.io/" target="_blank" rel="external">Electron</a> disponibilizado no site do <a href="https://www.getpostman.com/" target="_blank" rel="external">Postman</a>. Então:</p>
+<ol>
+<li>Baixe o Postman aqui: <a href="https://www.getpostman.com/" target="_blank" rel="external">https://www.getpostman.com/</a></li>
+<li>Divirta-se</li>
+</ol>
+<h1 id="Levantando-API-para-teste"><a href="#Levantando-API-para-teste" class="headerlink" title="Levantando API para teste"></a>Levantando API para teste</h1><p>Vamos usar uma API de exemplo já pronta criada em cima do projeto <a href="https://github.com/linck/protontype" target="_blank" rel="external">ProtonType</a>. Falei um pouco sobre ele aqui <a href="http://devlog.com.br/2016/11/15/ProtonType/">neste post</a>. </p>
+<p>Você precisará do <a href="https://nodejs.org/en/" target="_blank" rel="external">NodeJS 6.x</a> ou maior para usar esta API de exemplo. Claro que poderá usar qualquer API que você tenha controle para testar. Caso queira usar esta sugerida siga os passos abaixo:</p>
+<p><strong>Clone o projeto</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/linck/protontype-example.git</div></pre></td></tr></table></figure></p>
+<p><strong>Levante a api</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> protontype-example</div><div class="line">npm install</div><div class="line">npm start</div></pre></td></tr></table></figure></p>
+<p>Esta API nos possibilita criar, alterar, deletar e consultar Tasks e Users.<br>Para ver os endpoints disponíveis acesse no seu browser:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://localhost:3000</div></pre></td></tr></table></figure></p>
+<h1 id="Usando-o-Mr-Postman"><a href="#Usando-o-Mr-Postman" class="headerlink" title="Usando o Mr. Postman!"></a>Usando o Mr. Postman!</h1><p>Nossa API está escutando na porta 3000 e usa https, portanto a base da nossa URL será <strong><a href="https://locahost:3000" target="_blank" rel="external">https://locahost:3000</a></strong></p>
+<p>Ao abrir o Postman iremos nos deparar com a tela a baixo:<br><img src="inicial.png" alt="Initial"></p>
+<h2 id="Criando-um-Usuario"><a href="#Criando-um-Usuario" class="headerlink" title="Criando um Usuário"></a>Criando um Usuário</h2><p>Na tela inicial:</p>
+<ul>
+<li>Escolha a opçao <strong><em>POST</em></strong> </li>
+<li>Coloque a url: <strong><em><a href="https://localhost:3000/users" target="_blank" rel="external">https://localhost:3000/users</a></em></strong></li>
+<li>Vá para a aba <strong><em>body</em></strong> escolha a opção <strong><em>raw</em></strong> e <strong><em>JSON</em></strong></li>
+</ul>
+<p>No campo de texto a baixo adicione o JSON abaixo:<br><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"name"</span>: <span class="string">"DevLog"</span>,</div><div class="line">    <span class="attr">"password"</span>: <span class="string">"123456"</span>,</div><div class="line">    <span class="attr">"email"</span>: <span class="string">"devlog@devlog.com.br"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Sua configuração ficará como na figura abaixo:<br><img src="post_user.png" alt="Post User"></p>
+<p>Depois clique em <strong><em>Send</em></strong> para cadastrar um usuário.</p>
+<h2 id="Testando-Autenticacao-do-Usuario"><a href="#Testando-Autenticacao-do-Usuario" class="headerlink" title="Testando Autenticação do Usuário"></a>Testando Autenticação do Usuário</h2><p>Agora vamos testar a autenticação deste usuário cadastrado. Nossa API implementa um tipo de autenticação chamada <a href="https://jwt.io/" target="_blank" rel="external">JWT</a>. Vejamos como fazer isso no Postman.</p>
+<h3 id="Gerando-o-Token"><a href="#Gerando-o-Token" class="headerlink" title="Gerando o Token"></a>Gerando o Token</h3><p>Primeiro devemos solicitar a um token através da url <strong><em><a href="https://localhost:3000/token" target="_blank" rel="external">https://localhost:3000/token</a></em></strong>.</p>
+<p>Coloque esta url no Postman assim como foi feito com o usuário, através do método POST, e enviando o JSON:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"password"</span>: <span class="string">"123456"</span>,</div><div class="line">    <span class="attr">"email"</span>: <span class="string">"devlog@devlog.com.br"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Sua configuração ficará assim:<br><img src="token.png" alt="Token"></p>
+<p>Clique em <strong><em>send</em></strong> e receberá a resposta com um token:<br><img src="token_result.png" alt="Token"></p>
+<p>Pronto, agora você está autenticado. Copie este token e guarde para o próximo passo.</p>
+<h2 id="Criando-uma-Task"><a href="#Criando-uma-Task" class="headerlink" title="Criando uma Task"></a>Criando uma Task</h2><p>Agora vamos criar um task. Usando o método POST envie uma solicitação para url <strong><em><a href="https://localhost:3000/tasks" target="_blank" rel="external">https://localhost:3000/tasks</a></em></strong> com o JSON abaixo:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	<span class="attr">"title"</span>: <span class="string">"Task Teste"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Após clicar em <strong><em>Send</em></strong>, receberemos o resultado:<br><img src="add_task_unauth.png" alt="Token"></p>
+<p>Isso aconteceu porque não informamos na requisição http o <strong><em>token</em></strong> de autenticação gerado no passo anterior. Então vamos configurar.</p>
+<ul>
+<li>Vá na aba <strong><em>Headers</em></strong></li>
+<li>No campo <strong><em>key</em></strong> digite <strong><em>Authorization</em></strong>.</li>
+<li>No campo value coloque <strong><em>JWT [token_gerado]</em></strong> (por exemplo: <strong><em>JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.otx8FgAk8oHHmqY9-dOKmnF3kXOpm2Fxs5Krl985JKI</em></strong>)</li>
+</ul>
+<p><img src="add_task_token.png" alt="Token"></p>
+<p>Com esta configuração, estamos enviado o <strong><em>token</em></strong> que geramos no cabeçalho Authorization do http, possibilitando nossa API autenticar sua requisição. </p>
+<p>Agora sim, clique em <strong><em>Send</em></strong> e teremos uma Task criada!</p>
+<p>Com o Postman você terá uma ótima ferramente para testes de sua API. Agora você pode desbravar as suas outras funcionalidades de acordo com sua necessidade. Teste os outros endpoints da API. Faça bom uso!</p>
+
+
+                <ul class="share-buttons list-inline">
+                    <li><a href="https://plus.google.com/share?url=" target="_blank" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=' + encodeURIComponent(document.URL)); return false;"><img alt="Share on Google+" src="/img/icons/Google+.png"></a></li>
+                    <li><a href="https://www.facebook.com/sharer/sharer.php?u=&t=" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><img alt="Share on Facebook" src="/img/icons/Facebook.png"></a></li>
+                    <li><a href="https://twitter.com/intent/tweet?source=&text=:%20" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20'  + encodeURIComponent(document.URL)); return false;"><img alt="Tweet" src="/img/icons/Twitter.png"></a></li>
+                    <li><a href="mailto:?subject=&body=:%20" target="_blank" title="Send email" onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL)); return false;"><img alt="Send email" src="/img/icons/Email.png"></a></li>
+
+                     <!--
+                    <li><a href="http://pinterest.com/pin/create/button/?url=&description=" target="_blank" title="Pin it" onclick="window.open('http://pinterest.com/pin/create/button/?url=' + encodeURIComponent(document.URL) + '&description=' +  encodeURIComponent(document.title)); return false;"><img alt="Pin it" src="/img/icons/Pinterest.png"></a></li>
+                    <li><a href="http://www.reddit.com/submit?url=&title=" target="_blank" title="Submit to Reddit" onclick="window.open('http://www.reddit.com/submit?url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><img alt="Submit to Reddit" src="/img/icons/Reddit.png"></a></li>
+                    <li><a href="http://wordpress.com/press-this.php?u=&t=&s=" target="_blank" title="Publish on WordPress" onclick="window.open('http://wordpress.com/press-this.php?u=' + encodeURIComponent(document.URL) + '&t=' +  encodeURIComponent(document.title)); return false;"><img alt="Publish on WordPress" src="/img/icons/Wordpress.png"></a></li>
+                    -->
+                </ul>
+                   
+                <hr> 
+                
+
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/typescript-construtor/" data-toggle="tooltip" data-placement="top" title="TypeScript - Declarando propriedades de uma classe direto no construtor">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/typescript-duplicate-identifier/" data-toggle="tooltip" data-placement="top" title="TypeScript - Resolvendo o Duplicate Identifier Error">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#Express" title="Express">Express</a>
+                        
+                          <a class="tag" href="/tags/#NodeJS" title="NodeJS">NodeJS</a>
+                        
+                          <a class="tag" href="/tags/#REST" title="REST">REST</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://nildesign.com.br/" target="_blank">Nil Design</a></li>
+                    
+                        <li><a href="http://kleysondac.com.br/" target="_blank">Kleyson Costa</a></li>
+                    
+                        <li><a href="https://github.com/linck" target="_blank">Humberto Machado</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "devlogg";
+    var disqus_identifier = "http://devlog.com.br/testando-apis-rest-postman/";
+    var disqus_url = "http://devlog.com.br/testando-apis-rest-postman/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                    <li>
+                        <a href="/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/dev_logger">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/DevLogger">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; DevLog 2017 
+                    <br>    
+                    Developed with <span class="love">❤</span> by DevLog Team
+                    <br> 
+                    <a href="https://hexo.io/">Hexo</a> theme by <a href="http://huangxuan.me">Hux</a>/<a href="http://blog.kaijun.rocks">Kaijun</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://devlog.com.br/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="http://devlog.com.br/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

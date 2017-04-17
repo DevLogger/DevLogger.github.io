@@ -14,11 +14,11 @@
 
     <title>
         
-          DevLog Blog
+          TypeScript - Resolvendo o Duplicate Identifier Error - DevLog Blog
         
     </title>
 
-    <link rel="canonical" href="http://devlog.com.br/img/icons/license.html">
+    <link rel="canonical" href="http://devlog.com.br/typescript-duplicate-identifier/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -134,192 +134,137 @@
 
 
     <!-- Main Content -->
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/dev-hd-bg.png')">
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://devlog.com.br/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/duplicate-identifier.png');
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+</style>
+<header class="intro-header" >
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1></h1>
-                    <!--<hr class="small">-->
-                    <span class="subheading"></span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#TypeScript" title="TypeScript">TypeScript</a>
+                        
+                    </div>
+                    <h1>TypeScript - Resolvendo o Duplicate Identifier Error</h1>
+                    <h2 class="subheading">Se livre de uma vez por todas do Duplicate Identifier Error</h2>
+                    <span class="meta">
+                        Por Humberto Machado em
+                        16-11-2016
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
 
-
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        
-
-<!-- USE SIDEBAR -->
     <!-- Post Container -->
             <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
-            
-                <h1 id="Social-Flat-Rounded-Rects"><a href="#Social-Flat-Rounded-Rects" class="headerlink" title="Social Flat Rounded Rects"></a>Social Flat Rounded Rects</h1><h2 id="by-Aha-Soft-Team"><a href="#by-Aha-Soft-Team" class="headerlink" title="by Aha-Soft Team"></a>by <a href="http://www.aha-soft.com/free-icons/" target="_blank" rel="external">Aha-Soft Team</a></h2><p><strong>License:</strong>  Creative Commons (Attribution 3.0 Unported)</p>
-<p><em>Dec 26th, 2014</em></p>
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h1 id="TypeScript-Resolvendo-o-Duplicate-Identifier-Error"><a href="#TypeScript-Resolvendo-o-Duplicate-Identifier-Error" class="headerlink" title="TypeScript - Resolvendo o Duplicate Identifier Error"></a>TypeScript - Resolvendo o Duplicate Identifier Error</h1><p>Um dos problemas mais chatos que você pode encontrar quando for usar TypeScript é:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Duplicate identifier...</div></pre></td></tr></table></figure>
+<p>ou </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">message TS4090: Conflicting definitions for...</div></pre></td></tr></table></figure>
+<p>Isto acontece quando o compilador tenta carregar o mesmo módulo ou definição (.d.ts) mais de uma vez, identificando que este está duplicado. Quando se instala uma dependência via <strong><em>npm install</em></strong>, o <strong><em>npm</em></strong> já identifica se o módulo está baixado evitando duplicação, mas, se você esta usando módulos locais com <strong><em>npm link</em></strong>, é quase certo que terá este problema.</p>
+<p>Este erro não impede que o JavaScript seja gerado, mas aqui pra nós, é muito chato ver milhares de erro no seu console quando mandamos executar ou compilar algo.</p>
+<h2 id="Resolucao"><a href="#Resolucao" class="headerlink" title="Resolução"></a>Resolução</h2><h4 id="Atualize-a-versao-do-TypeScript"><a href="#Atualize-a-versao-do-TypeScript" class="headerlink" title="Atualize a versao do TypeScript"></a>Atualize a versao do TypeScript</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install typescript -g</div></pre></td></tr></table></figure>
+<h4 id="Configuracao-do-compilador"><a href="#Configuracao-do-compilador" class="headerlink" title="Configuração do compilador"></a>Configuração do compilador</h4><p>Coloque esta configuração do seu <strong>tsconfig.json</strong>:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">"compilerOptions" &#123;</div><div class="line">     ....</div><div class="line">    "baseUrl": "./",</div><div class="line">    "paths": &#123;</div><div class="line">        "*": [ "node_modules/@types/*", "*"]</div><div class="line">    &#125;</div><div class="line">   ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Isto informará ao compilador que quando ele for resolver um módulo qualquer, procure primeiro em  <code>.\node_modules\@types\</code> e so depois nos demais locais, evitando a duplicidade do carregamento.</p>
+<h2 id="Referencias"><a href="#Referencias" class="headerlink" title="Referências"></a>Referências</h2><ul>
+<li><a href="https://www.typescriptlang.org/docs/handbook/module-resolution.html" target="_blank" rel="external">https://www.typescriptlang.org/docs/handbook/module-resolution.html</a></li>
+<li><a href="https://github.com/Microsoft/TypeScript/issues/11916#event-853609143" target="_blank" rel="external">https://github.com/Microsoft/TypeScript/issues/11916#event-853609143</a>   </li>
+</ul>
+<p><em>Obrigado <a href="https://github.com/mhegazy" target="_blank" rel="external">@mhegazy</a> pela dica!!</em></p>
 
 
-                <!-- Comentários -->
+                <ul class="share-buttons list-inline">
+                    <li><a href="https://plus.google.com/share?url=" target="_blank" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=' + encodeURIComponent(document.URL)); return false;"><img alt="Share on Google+" src="/img/icons/Google+.png"></a></li>
+                    <li><a href="https://www.facebook.com/sharer/sharer.php?u=&t=" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><img alt="Share on Facebook" src="/img/icons/Facebook.png"></a></li>
+                    <li><a href="https://twitter.com/intent/tweet?source=&text=:%20" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20'  + encodeURIComponent(document.URL)); return false;"><img alt="Tweet" src="/img/icons/Twitter.png"></a></li>
+                    <li><a href="mailto:?subject=&body=:%20" target="_blank" title="Send email" onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL)); return false;"><img alt="Send email" src="/img/icons/Email.png"></a></li>
+
+                     <!--
+                    <li><a href="http://pinterest.com/pin/create/button/?url=&description=" target="_blank" title="Pin it" onclick="window.open('http://pinterest.com/pin/create/button/?url=' + encodeURIComponent(document.URL) + '&description=' +  encodeURIComponent(document.title)); return false;"><img alt="Pin it" src="/img/icons/Pinterest.png"></a></li>
+                    <li><a href="http://www.reddit.com/submit?url=&title=" target="_blank" title="Submit to Reddit" onclick="window.open('http://www.reddit.com/submit?url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><img alt="Submit to Reddit" src="/img/icons/Reddit.png"></a></li>
+                    <li><a href="http://wordpress.com/press-this.php?u=&t=&s=" target="_blank" title="Publish on WordPress" onclick="window.open('http://wordpress.com/press-this.php?u=' + encodeURIComponent(document.URL) + '&t=' +  encodeURIComponent(document.title)); return false;"><img alt="Publish on WordPress" src="/img/icons/Wordpress.png"></a></li>
+                    -->
+                </ul>
+                   
+                <hr> 
                 
-                    <hr>
 
+                <ul class="pager">
                     
-
+                        <li class="previous">
+                            <a href="/testando-apis-rest-postman/" data-toggle="tooltip" data-placement="top" title="Testando APIs REST com Postman">&larr; Previous Post</a>
+                        </li>
                     
-                    <!-- disqus 评论框 start -->
-                    <div class="comment">
-                        <div id="disqus_thread" class="disqus-thread"></div>
-                    </div>
-                    <!-- disqus 评论框 end -->
                     
-
-
+                        <li class="next">
+                            <a href="/crie-api-rest-protontype/" data-toggle="tooltip" data-placement="top" title="Crie sua API REST usando Typescript com ProtonType">Next Post &rarr;</a>
+                        </li>
                     
+                </ul>
 
-                    
-                    <!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
-                    <script type="text/javascript">
-                        /* * * CONFIGURATION VARIABLES * * */
-                        var disqus_shortname = "devlogg";
-                        var disqus_identifier = "http://devlog.com.br/img/icons/license.html";
-                        var disqus_url = "http://devlog.com.br/img/icons/license.html";
+                
 
-                        (function() {
-                            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                        })();
-
-                        
-                    </script>
-                    <!-- disqus 公共JS代码 end -->
-                    
-
-
-
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
                 
 
             </div>
+    <!-- Side Catalog Container -->
+        
+
     <!-- Sidebar Container -->
+
             <div class="
-                col-lg-3 col-lg-offset-0
-                col-md-3 col-md-offset-0
-                col-sm-12
-                col-xs-12
-                sidebar-container
-            ">
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
                 <!-- Featured Tags -->
                 
                 <section>
                     <!-- no hr -->
-                    <h5><a href="/tags/">TAGS EM DESTAQUE</a></h5>
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
-                        
-                            
-                            <a href="/tags/#Express" title="Express" rel="2">Express</a>
-                            
-                        
-                            
-                            <a href="/tags/#NodeJS" title="NodeJS" rel="3">NodeJS</a>
-                            
-                        
-                            
-                            <a href="/tags/#REST" title="REST" rel="2">REST</a>
-                            
-                        
-                            
-                        
-                            
-                            <a href="/tags/#TypeScript" title="TypeScript" rel="3">TypeScript</a>
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
+                       
+                          <a class="tag" href="/tags/#TypeScript" title="TypeScript">TypeScript</a>
                         
                     </div>
                 </section>
                 
 
-                <!-- Short About -->
-                <section class="visible-md visible-lg">
-                    <hr><h5><a href="/about/">SOBRE NÓS</a></h5>
-                    <div class="short-about">
-
-                        
-
-                        
-                            <p>Escrevemos um registro das nossas descobertas nessa infinita viagem que é aprender a programar bem</p>
-                        
-
-                        <!-- SNS Link -->
-                        <ul class="list-inline">
-                            
-                                <li>
-                                    <a href="/feed.xml">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-                            
-                                <li>
-                                    <a target="_blank" href="https://twitter.com/dev_logger">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-                            
-
-                            
-
-                            
-
-                            
-                                <li>
-                                    <a target="_blank"  href="https://github.com/DevLogger">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-                            
-                            
-                            
-                        </ul>
-                    </div>
-                </section>
-                
                 <!-- Friends Blog -->
                 
                 <hr>
-                <h5>PARCEIROS</h5>
+                <h5>FRIENDS</h5>
                 <ul class="list-inline">
 
                     
@@ -332,9 +277,32 @@
                 </ul>
                 
             </div>
-        
+
+        </div>
     </div>
-</div>
+</article>
+
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "devlogg";
+    var disqus_identifier = "http://devlog.com.br/typescript-duplicate-identifier/";
+    var disqus_url = "http://devlog.com.br/typescript-duplicate-identifier/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
 
 
     <!-- Footer -->

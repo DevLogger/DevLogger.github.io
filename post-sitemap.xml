@@ -7,40 +7,48 @@
     </url>
 
     <url>
-        <loc>http://devlog.com.br/2017/01/11/emmet-snippets/</loc>
-        <lastmod>2017-01-12T02:12:40.790Z</lastmod>
+        <loc>http://devlog.com.br/crie-api-rest-protontype/</loc>
+        <lastmod>2017-04-17T02:14:29.586Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>http://devlog.com.br/2016/12/02/ts-constructor-declaration/</loc>
-        <lastmod>2016-12-03T02:04:23.971Z</lastmod>
+        <loc>http://devlog.com.br/deploy-ionic-heroku/</loc>
+        <lastmod>2017-04-17T01:57:48.937Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>http://devlog.com.br/2016/11/20/Postman/</loc>
-        <lastmod>2016-11-21T00:17:07.990Z</lastmod>
+        <loc>http://devlog.com.br/typescript-construtor/</loc>
+        <lastmod>2017-04-17T01:25:00.098Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>http://devlog.com.br/2016/11/15/ProtonType/</loc>
-        <lastmod>2016-11-19T17:11:47.489Z</lastmod>
+        <loc>http://devlog.com.br/usando-emmet-vscode/</loc>
+        <lastmod>2017-04-17T01:25:00.092Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>http://devlog.com.br/2016/11/16/TypesDuplicateIdentifier/</loc>
-        <lastmod>2016-11-19T00:47:15.393Z</lastmod>
+        <loc>http://devlog.com.br/typescript-duplicate-identifier/</loc>
+        <lastmod>2017-04-17T01:25:00.088Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://devlog.com.br/testando-apis-rest-postman/</loc>
+        <lastmod>2017-04-17T01:25:00.082Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

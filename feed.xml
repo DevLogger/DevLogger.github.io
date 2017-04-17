@@ -8,13 +8,55 @@
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Thu, 12 Jan 2017 02:12:40 GMT</pubDate>
+    <pubDate>Mon, 17 Apr 2017 01:57:48 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
+      <title>Fazendo deploy de aplicativo Ionic no Heroku</title>
+      <link>http://devlog.com.br/deploy-ionic-heroku/</link>
+      <guid>http://devlog.com.br/deploy-ionic-heroku/</guid>
+      <pubDate>Sun, 05 Mar 2017 16:16:30 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;O Heroku se torna um meio muito útil e free para disponibilizar um build do app Ionic para testes em um servidor na nuvem.&lt;br&gt;Pra fazer i
+      
+      </description>
+      
+      <content:encoded><![CDATA[<p>O Heroku se torna um meio muito útil e free para disponibilizar um build do app Ionic para testes em um servidor na nuvem.<br>Pra fazer isso basta criar seguir os passos abaixo:</p>
+<h1 id="Preparando-o-projeto"><a href="#Preparando-o-projeto" class="headerlink" title="Preparando o projeto"></a>Preparando o projeto</h1><ul>
+<li>Criar um repositório no github</li>
+<li>Criar um projeto npm com a dependencia do express</li>
+</ul>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm init</div><div class="line">npm install express --save</div></pre></td></tr></table></figure>
+<ul>
+<li>Copiar a pasta www do projeto ionic para o projeto criado</li>
+<li>Criar um servidor em node + express para servir o index.html da pasta www</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>),</div><div class="line">    app = express();</div><div class="line"></div><div class="line">app.use(express.static(<span class="string">'www'</span>));</div><div class="line"></div><div class="line"><span class="comment">// CORS (Cross-Origin Resource Sharing) headers to support Cross-site HTTP requests</span></div><div class="line">app.all(<span class="string">'*'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>&#123;</div><div class="line">    res.header(<span class="string">"Access-Control-Allow-Origin"</span>, <span class="string">"*"</span>);</div><div class="line">    res.header(<span class="string">"Access-Control-Allow-Headers"</span>, <span class="string">"X-Requested-With"</span>);</div><div class="line">    next();</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// API Routes</span></div><div class="line"><span class="comment">// app.get('/blah', routeHandler);</span></div><div class="line"></div><div class="line">app.set(<span class="string">'port'</span>, process.env.PORT || <span class="number">5000</span>);</div><div class="line"></div><div class="line">app.listen(app.get(<span class="string">'port'</span>), <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Express server listening on port '</span> + app.get(<span class="string">'port'</span>));</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<ul>
+<li>Commit e push seu projeto no repositório criado</li>
+</ul>
+<h1 id="Fazendo-Deploy-no-Heroku"><a href="#Fazendo-Deploy-no-Heroku" class="headerlink" title="Fazendo Deploy no Heroku"></a>Fazendo Deploy no Heroku</h1><ul>
+<li>Crie uma conta no Heroku</li>
+<li>Acesse <a href="https://dashboard.heroku.com/" target="_blank" rel="external">https://dashboard.heroku.com/</a></li>
+<li>Vá na opção new &gt; create new app</li>
+<li>Dê um nome pro projeto e clique em “Create new app”</li>
+<li>Na sessão “Deployment method” escolha GitHub</li>
+<li>Escolha o projeto criado nos passos a cima</li>
+<li>Clique em “Automatic Deploy” para fazer o deploy sempre que fizer um push</li>
+<li>Clique em em “Deploy Branch”</li>
+<li>Clique em View</li>
+</ul>
+<p>Pronto! Agora é só aproveitar</p>
+]]></content:encoded>
+      
+      <comments>http://devlog.com.br/deploy-ionic-heroku/#disqus_thread</comments>
+    </item>
+    
+    <item>
       <title>Usando Emmet Snippets no VSCode</title>
-      <link>http://devlog.com.br/2017/01/11/emmet-snippets/</link>
-      <guid>http://devlog.com.br/2017/01/11/emmet-snippets/</guid>
+      <link>http://devlog.com.br/usando-emmet-vscode/</link>
+      <guid>http://devlog.com.br/usando-emmet-vscode/</guid>
       <pubDate>Thu, 12 Jan 2017 01:52:32 GMT</pubDate>
       <description>
       
@@ -34,13 +76,13 @@
 </ul>
 ]]></content:encoded>
       
-      <comments>http://devlog.com.br/2017/01/11/emmet-snippets/#disqus_thread</comments>
+      <comments>http://devlog.com.br/usando-emmet-vscode/#disqus_thread</comments>
     </item>
     
     <item>
       <title>TypeScript - Declarando propriedades de uma classe direto no construtor</title>
-      <link>http://devlog.com.br/2016/12/02/ts-constructor-declaration/</link>
-      <guid>http://devlog.com.br/2016/12/02/ts-constructor-declaration/</guid>
+      <link>http://devlog.com.br/typescript-construtor/</link>
+      <guid>http://devlog.com.br/typescript-construtor/</guid>
       <pubDate>Sat, 03 Dec 2016 01:27:51 GMT</pubDate>
       <description>
       
@@ -56,13 +98,13 @@
 <p><em>Obrigado <a href="https://twitter.com/plinionaves" target="_blank" rel="external">Plínio Naves</a> pela dica!</em></p>
 ]]></content:encoded>
       
-      <comments>http://devlog.com.br/2016/12/02/ts-constructor-declaration/#disqus_thread</comments>
+      <comments>http://devlog.com.br/typescript-construtor/#disqus_thread</comments>
     </item>
     
     <item>
       <title>Testando APIs REST com Postman</title>
-      <link>http://devlog.com.br/2016/11/20/Postman/</link>
-      <guid>http://devlog.com.br/2016/11/20/Postman/</guid>
+      <link>http://devlog.com.br/testando-apis-rest-postman/</link>
+      <guid>http://devlog.com.br/testando-apis-rest-postman/</guid>
       <pubDate>Sun, 20 Nov 2016 17:22:30 GMT</pubDate>
       <description>
       
@@ -115,13 +157,13 @@
 <p>Com o Postman você terá uma ótima ferramente para testes de sua API. Agora você pode desbravar as suas outras funcionalidades de acordo com sua necessidade. Teste os outros endpoints da API. Faça bom uso!</p>
 ]]></content:encoded>
       
-      <comments>http://devlog.com.br/2016/11/20/Postman/#disqus_thread</comments>
+      <comments>http://devlog.com.br/testando-apis-rest-postman/#disqus_thread</comments>
     </item>
     
     <item>
       <title>TypeScript - Resolvendo o Duplicate Identifier Error</title>
-      <link>http://devlog.com.br/2016/11/16/TypesDuplicateIdentifier/</link>
-      <guid>http://devlog.com.br/2016/11/16/TypesDuplicateIdentifier/</guid>
+      <link>http://devlog.com.br/typescript-duplicate-identifier/</link>
+      <guid>http://devlog.com.br/typescript-duplicate-identifier/</guid>
       <pubDate>Thu, 17 Nov 2016 00:59:42 GMT</pubDate>
       <description>
       
@@ -146,35 +188,30 @@
 <p><em>Obrigado <a href="https://github.com/mhegazy" target="_blank" rel="external">@mhegazy</a> pela dica!!</em></p>
 ]]></content:encoded>
       
-      <comments>http://devlog.com.br/2016/11/16/TypesDuplicateIdentifier/#disqus_thread</comments>
+      <comments>http://devlog.com.br/typescript-duplicate-identifier/#disqus_thread</comments>
     </item>
     
     <item>
-      <title>Crie sua API REST com ProtonType</title>
-      <link>http://devlog.com.br/2016/11/15/ProtonType/</link>
-      <guid>http://devlog.com.br/2016/11/15/ProtonType/</guid>
+      <title>Crie sua API REST usando Typescript com ProtonType</title>
+      <link>http://devlog.com.br/crie-api-rest-protontype/</link>
+      <guid>http://devlog.com.br/crie-api-rest-protontype/</guid>
       <pubDate>Tue, 15 Nov 2016 17:22:30 GMT</pubDate>
       <description>
       
-        &lt;h1 id=&quot;ProtonType&quot;&gt;&lt;a href=&quot;#ProtonType&quot; class=&quot;headerlink&quot; title=&quot;ProtonType&quot;&gt;&lt;/a&gt;ProtonType&lt;/h1&gt;&lt;p&gt;Um simples web framework feito em Type
+        &lt;p&gt;Protontype é um módulo Node que ajuda na criação de APIs RESTfull. Tem como objetivo facilitar a criação de objetos de banco de dados, ro
       
       </description>
       
-      <content:encoded><![CDATA[<h1 id="ProtonType"><a href="#ProtonType" class="headerlink" title="ProtonType"></a>ProtonType</h1><p>Um simples web framework feito em TypeScript.</p>
-<p>O ProtonType tem como objetivo tornar simples e agradável o desensolvimento de APIs REST e criação de modelos de banco de dados. Utilizando <a href="http://expressjs.com/" target="_blank" rel="external">Express</a> e <a href="http://docs.sequelizejs.com/" target="_blank" rel="external">Sequelize ORM</a> ajuda na criação de aplicações web robustas.</p>
-<h1 id="Configuracao-do-projeto-TypeScript"><a href="#Configuracao-do-projeto-TypeScript" class="headerlink" title="Configuração do projeto TypeScript"></a>Configuração do projeto TypeScript</h1><p>As seguintes configurações no <strong>tsconfig.json</strong> são necessárias para o<br>funcionamento.</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&#123;</div><div class="line">  <span class="attr">"compilerOptions"</span>: &#123;</div><div class="line">    <span class="attr">"target"</span>: <span class="string">"es6"</span>,</div><div class="line">    <span class="attr">"module"</span>: <span class="string">"commonjs"</span>,</div><div class="line">    <span class="attr">"emitDecoratorMetadata"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">"experimentalDecorators"</span>: <span class="literal">true</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="Instalacao"><a href="#Instalacao" class="headerlink" title="Instalação"></a>Instalação</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">npm install protontype --save</div></pre></td></tr></table></figure>
-<p><strong>Obs: será necessário ter instalado o NodeJS 6 ou maior</strong></p>
-<h1 id="Quick-Start-Criando-uma-API-Completa-em-5-passos"><a href="#Quick-Start-Criando-uma-API-Completa-em-5-passos" class="headerlink" title="Quick Start - Criando uma API Completa em 5 passos"></a>Quick Start - Criando uma API Completa em 5 passos</h1><h2 id="Estrutura-de-pastas-e-configuracoes-iniciais"><a href="#Estrutura-de-pastas-e-configuracoes-iniciais" class="headerlink" title="Estrutura de pastas e configurações iniciais"></a>Estrutura de pastas e configurações iniciais</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">mkdir proton-quickstart</div><div class="line"><span class="built_in">cd</span> proton-quickstart</div><div class="line">npm init</div><div class="line">mkdir src</div><div class="line">npm install protontype --save</div></pre></td></tr></table></figure>
+      <content:encoded><![CDATA[<p>Protontype é um módulo Node que ajuda na criação de APIs RESTfull. Tem como objetivo facilitar a criação de objetos de banco de dados, rotas, middlewares e autenticação, tudo isso usando Typescript</p>
+<h1 id="Quick-Start-Criando-uma-API-em-5-passos"><a href="#Quick-Start-Criando-uma-API-em-5-passos" class="headerlink" title="Quick Start - Criando uma API em 5 passos"></a>Quick Start - Criando uma API em 5 passos</h1><h2 id="Estrutura-de-pastas-e-configuracoes-iniciais"><a href="#Estrutura-de-pastas-e-configuracoes-iniciais" class="headerlink" title="Estrutura de pastas e configurações iniciais"></a>Estrutura de pastas e configurações iniciais</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">mkdir proton-quickstart</div><div class="line"><span class="built_in">cd</span> proton-quickstart</div><div class="line">npm init</div><div class="line">mkdir src</div><div class="line">npm install protontype --save</div></pre></td></tr></table></figure>
 <p>Criar o arquivo tsconfig.json na raiz do projeto</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&#123;</div><div class="line">  <span class="attr">"compilerOptions"</span>: &#123;</div><div class="line">    <span class="attr">"target"</span>: <span class="string">"es6"</span>,</div><div class="line">    <span class="attr">"module"</span>: <span class="string">"commonjs"</span>,</div><div class="line">    <span class="attr">"emitDecoratorMetadata"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">"experimentalDecorators"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">"outDir"</span>: <span class="string">"dist"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">"exclude"</span>: [</div><div class="line">    <span class="string">"node_modules"</span>,</div><div class="line">    <span class="string">"dist"</span></div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&#123;</div><div class="line">  <span class="attr">"compilerOptions"</span>: &#123;</div><div class="line">    <span class="attr">"target"</span>: <span class="string">"es5"</span>,</div><div class="line">    <span class="attr">"module"</span>: <span class="string">"commonjs"</span>,</div><div class="line">    <span class="attr">"emitDecoratorMetadata"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">"experimentalDecorators"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">"outDir"</span>: <span class="string">"dist"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">"exclude"</span>: [</div><div class="line">    <span class="string">"node_modules"</span>,</div><div class="line">    <span class="string">"dist"</span></div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h2><p>Criar um arquivo ParticlesModel.ts</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; BaseModel, SequelizeBaseModelAttr, Model, DataTypes &#125; <span class="keyword">from</span> <span class="string">'protontype'</span>;</div><div class="line"></div><div class="line">@Model(&#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">"Particles"</span>,</div><div class="line">    <span class="attr">definition</span>: &#123;</div><div class="line">        <span class="attr">name</span>: &#123;</div><div class="line">            <span class="attr">type</span>: DataTypes.STRING</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">symbol</span>: &#123;</div><div class="line">            <span class="attr">type</span>: DataTypes.STRING</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">mass</span>: &#123;</div><div class="line">            <span class="attr">type</span>: DataTypes.BIGINT</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">ParticlesModel</span> <span class="keyword">extends</span> <span class="title">BaseModel</span>&lt;<span class="title">Particle</span>&gt; </span>&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> interface Particle extends SequelizeBaseModelAttr &#123;</div><div class="line">    <span class="attr">name</span>: string;</div><div class="line">    symbol: string;</div><div class="line">    mass: number;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="Router"><a href="#Router" class="headerlink" title="Router"></a>Router</h2><p>Criar arquivo ParticlesRouter.ts</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; ParticlesModel &#125; <span class="keyword">from</span> <span class="string">'./ParticlesModel'</span>;</div><div class="line"><span class="keyword">import</span> &#123; BaseCrudRouter, RouterClass &#125; <span class="keyword">from</span> <span class="string">'protontype'</span>;</div><div class="line"></div><div class="line">@RouterClass(&#123;</div><div class="line">    <span class="attr">baseUrl</span>: <span class="string">'/particles'</span>,</div><div class="line">    <span class="attr">modelInstances</span>: [<span class="keyword">new</span> ParticlesModel()]</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">ParticlesRouter</span> <span class="keyword">extends</span> <span class="title">BaseCrudRouter</span> </span>&#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="Main"><a href="#Main" class="headerlink" title="Main"></a>Main</h2><p>Criar arquivo Main.ts</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; ParticlesRouter &#125; <span class="keyword">from</span> <span class="string">'./ParticlesRouter'</span>;</div><div class="line"><span class="keyword">import</span> &#123; ExpressApplication &#125; <span class="keyword">from</span> <span class="string">'protontype'</span>;</div><div class="line"></div><div class="line"><span class="keyword">new</span> ExpressApplication()</div><div class="line">    .addRouter(<span class="keyword">new</span> ParticlesRouter())</div><div class="line">    .bootstrap();</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; ParticlesRouter &#125; <span class="keyword">from</span> <span class="string">'./ParticlesRouter'</span>;</div><div class="line"><span class="keyword">import</span> &#123; ProtonApplication &#125; <span class="keyword">from</span> <span class="string">'protontype'</span>;</div><div class="line"></div><div class="line"><span class="keyword">new</span> ProtonApplication()</div><div class="line">    .addRouter(<span class="keyword">new</span> ParticlesRouter())</div><div class="line">    .bootstrap();</div></pre></td></tr></table></figure>
 <p><strong>Compilando e Rodando Aplicação</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">tsc</div><div class="line">node dist/Main.ts</div></pre></td></tr></table></figure></p>
 <h2 id="Testando-a-API"><a href="#Testando-a-API" class="headerlink" title="Testando a API"></a>Testando a API</h2><p>Por padrão, a aplicação usará um banco de dados sqlite.<br>Será criado um arquivo proton.sqlite na raiz do projeto.</p>
 <p>Os endpoints abaixo já estarão disponíveis:</p>
@@ -185,15 +222,15 @@
 <li><strong>PUT /particles/:id</strong> - Atualiza um registro da tabela Particles</li>
 <li><strong>DELETE /particles/:id</strong> - Remove um registro da tabela Particles</li>
 </ul>
-<p>Poderá testar através do app <a href="https://www.getpostman.com/" target="_blank" rel="external">Postman</a> ou outro da sua preferência.</p>
+<p>Podera testar através do app <a href="https://www.getpostman.com/" target="_blank" rel="external">Postman</a> ou outro da sua preferência.</p>
 <p><strong>Código completo do quick start</strong></p>
 <p><a href="https://github.com/linck/proton-quickstart" target="_blank" rel="external">https://github.com/linck/proton-quickstart</a></p>
-<p><strong>Exemplo de uso completo</strong></p>
-<p><a href="https://github.com/linck/protontype-example" target="_blank" rel="external">https://github.com/linck/protontype-example</a></p>
-<p><strong>Projeto e guia completo</strong><br><a href="https://github.com/linck/protontype" target="_blank" rel="external">https://github.com/linck/protontype</a></p>
+<h2 id="Exemplo"><a href="#Exemplo" class="headerlink" title="Exemplo"></a>Exemplo</h2><p><a href="https://github.com/linck/protontype-example" target="_blank" rel="external">https://github.com/linck/protontype-example</a></p>
+<h2 id="Projeto"><a href="#Projeto" class="headerlink" title="Projeto"></a>Projeto</h2><p><a href="https://github.com/linck/protontype" target="_blank" rel="external">https://github.com/linck/protontype</a></p>
+<h2 id="Documentacao"><a href="#Documentacao" class="headerlink" title="Documentação"></a>Documentação</h2><p><a href="https://linck.github.io/protontype-docs" target="_blank" rel="external">https://linck.github.io/protontype-docs</a></p>
 ]]></content:encoded>
       
-      <comments>http://devlog.com.br/2016/11/15/ProtonType/#disqus_thread</comments>
+      <comments>http://devlog.com.br/crie-api-rest-protontype/#disqus_thread</comments>
     </item>
     
   </channel>

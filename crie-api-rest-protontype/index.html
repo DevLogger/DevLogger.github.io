@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="null">
+    <meta name="keyword"  content="undefined">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="icon" href="/img/favicon.png" />
+
+    <title>
+        
+          Crie sua API REST usando Typescript com ProtonType - DevLog Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://devlog.com.br/crie-api-rest-protontype/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="http://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">DevLog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://devlog.com.br/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/proton-1.jpg');
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#Express" title="Express">Express</a>
+                        
+                          <a class="tag" href="/tags/#NodeJS" title="NodeJS">NodeJS</a>
+                        
+                          <a class="tag" href="/tags/#REST" title="REST">REST</a>
+                        
+                          <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
+                        
+                          <a class="tag" href="/tags/#TypeScript" title="TypeScript">TypeScript</a>
+                        
+                          <a class="tag" href="/tags/#Sequelize" title="Sequelize">Sequelize</a>
+                        
+                    </div>
+                    <h1>Crie sua API REST usando Typescript com ProtonType</h1>
+                    <h2 class="subheading">Express + Sequelize + TypeScript = ProtonType</h2>
+                    <span class="meta">
+                        Por Humberto Machado em
+                        15-11-2016
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <p>Protontype é um módulo Node que ajuda na criação de APIs RESTfull. Tem como objetivo facilitar a criação de objetos de banco de dados, rotas, middlewares e autenticação, tudo isso usando Typescript</p>
+<h1 id="Quick-Start-Criando-uma-API-em-5-passos"><a href="#Quick-Start-Criando-uma-API-em-5-passos" class="headerlink" title="Quick Start - Criando uma API em 5 passos"></a>Quick Start - Criando uma API em 5 passos</h1><h2 id="Estrutura-de-pastas-e-configuracoes-iniciais"><a href="#Estrutura-de-pastas-e-configuracoes-iniciais" class="headerlink" title="Estrutura de pastas e configurações iniciais"></a>Estrutura de pastas e configurações iniciais</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">mkdir proton-quickstart</div><div class="line"><span class="built_in">cd</span> proton-quickstart</div><div class="line">npm init</div><div class="line">mkdir src</div><div class="line">npm install protontype --save</div></pre></td></tr></table></figure>
+<p>Criar o arquivo tsconfig.json na raiz do projeto</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&#123;</div><div class="line">  <span class="attr">"compilerOptions"</span>: &#123;</div><div class="line">    <span class="attr">"target"</span>: <span class="string">"es5"</span>,</div><div class="line">    <span class="attr">"module"</span>: <span class="string">"commonjs"</span>,</div><div class="line">    <span class="attr">"emitDecoratorMetadata"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">"experimentalDecorators"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">"outDir"</span>: <span class="string">"dist"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">"exclude"</span>: [</div><div class="line">    <span class="string">"node_modules"</span>,</div><div class="line">    <span class="string">"dist"</span></div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h2><p>Criar um arquivo ParticlesModel.ts</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; BaseModel, SequelizeBaseModelAttr, Model, DataTypes &#125; <span class="keyword">from</span> <span class="string">'protontype'</span>;</div><div class="line"></div><div class="line">@Model(&#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">"Particles"</span>,</div><div class="line">    <span class="attr">definition</span>: &#123;</div><div class="line">        <span class="attr">name</span>: &#123;</div><div class="line">            <span class="attr">type</span>: DataTypes.STRING</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">symbol</span>: &#123;</div><div class="line">            <span class="attr">type</span>: DataTypes.STRING</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">mass</span>: &#123;</div><div class="line">            <span class="attr">type</span>: DataTypes.BIGINT</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">ParticlesModel</span> <span class="keyword">extends</span> <span class="title">BaseModel</span>&lt;<span class="title">Particle</span>&gt; </span>&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> interface Particle extends SequelizeBaseModelAttr &#123;</div><div class="line">    <span class="attr">name</span>: string;</div><div class="line">    symbol: string;</div><div class="line">    mass: number;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Router"><a href="#Router" class="headerlink" title="Router"></a>Router</h2><p>Criar arquivo ParticlesRouter.ts</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; ParticlesModel &#125; <span class="keyword">from</span> <span class="string">'./ParticlesModel'</span>;</div><div class="line"><span class="keyword">import</span> &#123; BaseCrudRouter, RouterClass &#125; <span class="keyword">from</span> <span class="string">'protontype'</span>;</div><div class="line"></div><div class="line">@RouterClass(&#123;</div><div class="line">    <span class="attr">baseUrl</span>: <span class="string">'/particles'</span>,</div><div class="line">    <span class="attr">modelInstances</span>: [<span class="keyword">new</span> ParticlesModel()]</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">ParticlesRouter</span> <span class="keyword">extends</span> <span class="title">BaseCrudRouter</span> </span>&#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Main"><a href="#Main" class="headerlink" title="Main"></a>Main</h2><p>Criar arquivo Main.ts</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; ParticlesRouter &#125; <span class="keyword">from</span> <span class="string">'./ParticlesRouter'</span>;</div><div class="line"><span class="keyword">import</span> &#123; ProtonApplication &#125; <span class="keyword">from</span> <span class="string">'protontype'</span>;</div><div class="line"></div><div class="line"><span class="keyword">new</span> ProtonApplication()</div><div class="line">    .addRouter(<span class="keyword">new</span> ParticlesRouter())</div><div class="line">    .bootstrap();</div></pre></td></tr></table></figure>
+<p><strong>Compilando e Rodando Aplicação</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">tsc</div><div class="line">node dist/Main.ts</div></pre></td></tr></table></figure></p>
+<h2 id="Testando-a-API"><a href="#Testando-a-API" class="headerlink" title="Testando a API"></a>Testando a API</h2><p>Por padrão, a aplicação usará um banco de dados sqlite.<br>Será criado um arquivo proton.sqlite na raiz do projeto.</p>
+<p>Os endpoints abaixo já estarão disponíveis:</p>
+<ul>
+<li><strong>GET /particles</strong> - Lista todos os registos da tabela Particles</li>
+<li><strong>POST /particles</strong> - Cria um registro na tabela Particles</li>
+<li><strong>GET /particles/:id</strong> - Consulta um registro da tabela Particles</li>
+<li><strong>PUT /particles/:id</strong> - Atualiza um registro da tabela Particles</li>
+<li><strong>DELETE /particles/:id</strong> - Remove um registro da tabela Particles</li>
+</ul>
+<p>Podera testar através do app <a href="https://www.getpostman.com/" target="_blank" rel="external">Postman</a> ou outro da sua preferência.</p>
+<p><strong>Código completo do quick start</strong></p>
+<p><a href="https://github.com/linck/proton-quickstart" target="_blank" rel="external">https://github.com/linck/proton-quickstart</a></p>
+<h2 id="Exemplo"><a href="#Exemplo" class="headerlink" title="Exemplo"></a>Exemplo</h2><p><a href="https://github.com/linck/protontype-example" target="_blank" rel="external">https://github.com/linck/protontype-example</a></p>
+<h2 id="Projeto"><a href="#Projeto" class="headerlink" title="Projeto"></a>Projeto</h2><p><a href="https://github.com/linck/protontype" target="_blank" rel="external">https://github.com/linck/protontype</a></p>
+<h2 id="Documentacao"><a href="#Documentacao" class="headerlink" title="Documentação"></a>Documentação</h2><p><a href="https://linck.github.io/protontype-docs" target="_blank" rel="external">https://linck.github.io/protontype-docs</a></p>
+
+
+                <ul class="share-buttons list-inline">
+                    <li><a href="https://plus.google.com/share?url=" target="_blank" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=' + encodeURIComponent(document.URL)); return false;"><img alt="Share on Google+" src="/img/icons/Google+.png"></a></li>
+                    <li><a href="https://www.facebook.com/sharer/sharer.php?u=&t=" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><img alt="Share on Facebook" src="/img/icons/Facebook.png"></a></li>
+                    <li><a href="https://twitter.com/intent/tweet?source=&text=:%20" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20'  + encodeURIComponent(document.URL)); return false;"><img alt="Tweet" src="/img/icons/Twitter.png"></a></li>
+                    <li><a href="mailto:?subject=&body=:%20" target="_blank" title="Send email" onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL)); return false;"><img alt="Send email" src="/img/icons/Email.png"></a></li>
+
+                     <!--
+                    <li><a href="http://pinterest.com/pin/create/button/?url=&description=" target="_blank" title="Pin it" onclick="window.open('http://pinterest.com/pin/create/button/?url=' + encodeURIComponent(document.URL) + '&description=' +  encodeURIComponent(document.title)); return false;"><img alt="Pin it" src="/img/icons/Pinterest.png"></a></li>
+                    <li><a href="http://www.reddit.com/submit?url=&title=" target="_blank" title="Submit to Reddit" onclick="window.open('http://www.reddit.com/submit?url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><img alt="Submit to Reddit" src="/img/icons/Reddit.png"></a></li>
+                    <li><a href="http://wordpress.com/press-this.php?u=&t=&s=" target="_blank" title="Publish on WordPress" onclick="window.open('http://wordpress.com/press-this.php?u=' + encodeURIComponent(document.URL) + '&t=' +  encodeURIComponent(document.title)); return false;"><img alt="Publish on WordPress" src="/img/icons/Wordpress.png"></a></li>
+                    -->
+                </ul>
+                   
+                <hr> 
+                
+
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/typescript-duplicate-identifier/" data-toggle="tooltip" data-placement="top" title="TypeScript - Resolvendo o Duplicate Identifier Error">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                </ul>
+
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#Express" title="Express">Express</a>
+                        
+                          <a class="tag" href="/tags/#NodeJS" title="NodeJS">NodeJS</a>
+                        
+                          <a class="tag" href="/tags/#REST" title="REST">REST</a>
+                        
+                          <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
+                        
+                          <a class="tag" href="/tags/#TypeScript" title="TypeScript">TypeScript</a>
+                        
+                          <a class="tag" href="/tags/#Sequelize" title="Sequelize">Sequelize</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://nildesign.com.br/" target="_blank">Nil Design</a></li>
+                    
+                        <li><a href="http://kleysondac.com.br/" target="_blank">Kleyson Costa</a></li>
+                    
+                        <li><a href="https://github.com/linck" target="_blank">Humberto Machado</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "devlogg";
+    var disqus_identifier = "http://devlog.com.br/crie-api-rest-protontype/";
+    var disqus_url = "http://devlog.com.br/crie-api-rest-protontype/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                    <li>
+                        <a href="/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/dev_logger">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/DevLogger">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; DevLog 2017 
+                    <br>    
+                    Developed with <span class="love">❤</span> by DevLog Team
+                    <br> 
+                    <a href="https://hexo.io/">Hexo</a> theme by <a href="http://huangxuan.me">Hux</a>/<a href="http://blog.kaijun.rocks">Kaijun</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://devlog.com.br/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="http://devlog.com.br/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
