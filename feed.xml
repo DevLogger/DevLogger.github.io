@@ -8,7 +8,7 @@
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Tue, 18 Apr 2017 15:57:23 GMT</pubDate>
+    <pubDate>Tue, 18 Apr 2017 22:34:03 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -22,10 +22,10 @@
       
       </description>
       
-      <content:encoded><![CDATA[<p>O Heroku se torna um meio muito útil e free para disponibilizar um build do app Ionic para testes em um servidor na nuvem.<br>Pra fazer isso basta criar seguir os passos abaixo:</p>
+      <content:encoded><![CDATA[<p>O Heroku se torna um meio muito útil e free para disponibilizar um build do app Ionic para testes em um servidor na nuvem.<br>Pra fazer isso basta seguir os passos abaixo:</p>
 <h1 id="Preparando-o-projeto"><a href="#Preparando-o-projeto" class="headerlink" title="Preparando o projeto"></a>Preparando o projeto</h1><ul>
 <li>Criar um repositório no github</li>
-<li>Criar um projeto npm com a dependencia do express</li>
+<li>Criar um projeto npm com a dependência do express</li>
 </ul>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm init</div><div class="line">npm install express --save</div></pre></td></tr></table></figure>
 <ul>
