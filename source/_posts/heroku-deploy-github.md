@@ -27,6 +27,7 @@ npm install express --save
 
 - Copiar a pasta www do projeto ionic para o projeto criado
 - Criar um servidor em node + express para servir o index.html da pasta www
+- Crie um arquivo **server.js** na raiz do projeto:
 
 ```javascript
 var express = require('express'),
@@ -40,9 +41,6 @@ app.all('*', function(req, res, next) {
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
     next();
 });
-
-// API Routes
-// app.get('/blah', routeHandler);
 
 app.set('port', process.env.PORT || 5000);
 
@@ -65,4 +63,8 @@ app.listen(app.get('port'), function () {
 - Clique em View
 
 Pronto! Agora é só aproveitar
+
+# Repositório Exemplo
+
+<https://github.com/DevLogger/heroku-github>
 
