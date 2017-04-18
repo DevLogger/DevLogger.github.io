@@ -14,11 +14,11 @@ permalink: deploy-ionic-heroku
 ---
 
 O Heroku se torna um meio muito útil e free para disponibilizar um build do app Ionic para testes em um servidor na nuvem.
-Pra fazer isso basta criar seguir os passos abaixo:
+Pra fazer isso basta seguir os passos abaixo:
 
 # Preparando o projeto
 - Criar um repositório no github
-- Criar um projeto npm com a dependencia do express
+- Criar um projeto npm com a dependência do express
 
 ```cmd
 npm init
