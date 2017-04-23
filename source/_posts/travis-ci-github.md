@@ -6,6 +6,7 @@ tags:
     - CI
     - NodeJS
     - GitHub
+    - Tools
 header-img: img/logotravis.png
 subtitle: Configure Integração Contínua de Forma Simples e Rápida no Seu Repositório Github
 author: Humberto Machado

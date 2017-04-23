@@ -18,12 +18,6 @@ Um dos problemas mais chatos que você pode encontrar quando for usar TypeScript
 Duplicate identifier...
 ```
 
-ou 
-
-```bash
-message TS4090: Conflicting definitions for...
-```
-
 Isto acontece quando o compilador tenta carregar o mesmo módulo ou definição (.d.ts) mais de uma vez, identificando que este está duplicado. Quando se instala uma dependência via ***npm install***, o ***npm*** já identifica se o módulo está baixado evitando duplicação, mas, se você esta usando módulos locais com ***npm link***, é quase certo que terá este problema.
 
 

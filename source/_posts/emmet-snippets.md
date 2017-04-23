@@ -4,6 +4,7 @@ date: 2017-01-11 22:52:32
 tags: 
     - VScode
     - Editors
+    - Tools
 header-img: img/emmet-title.png
 subtitle: Rápido, eficiente e divertido!
 author: Humberto Machado
