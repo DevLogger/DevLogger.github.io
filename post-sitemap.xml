@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://devlog.com.br/usando-travis-ci-github/</loc>
+        <lastmod>2017-04-23T17:12:41.430Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://devlog.com.br/deploy-ionic-heroku/</loc>
         <lastmod>2017-04-18T22:34:03.170Z</lastmod>
         <changefreq>weekly</changefreq>

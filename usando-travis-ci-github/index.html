@@ -14,11 +14,11 @@
 
     <title>
         
-          Crie sua API REST usando Typescript com ProtonType - DevLog Blog
+          Integração Contínua com Travis CI no Repositório GitHub - DevLog Blog
         
     </title>
 
-    <link rel="canonical" href="http://devlog.com.br/crie-api-rest-protontype/">
+    <link rel="canonical" href="http://devlog.com.br/usando-travis-ci-github/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -142,7 +142,7 @@
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
-        background-image: url('/img/proton-1.jpg');
+        background-image: url('/img/logotravis.png');
         -webkit-background-size: cover;
         -moz-background-size: cover;
         background-size: cover;
@@ -155,24 +155,20 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                          <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
-                        
-                          <a class="tag" href="/tags/#TypeScript" title="TypeScript">TypeScript</a>
-                        
-                          <a class="tag" href="/tags/#Express" title="Express">Express</a>
-                        
-                          <a class="tag" href="/tags/#Sequelize" title="Sequelize">Sequelize</a>
-                        
                           <a class="tag" href="/tags/#NodeJS" title="NodeJS">NodeJS</a>
                         
-                          <a class="tag" href="/tags/#REST" title="REST">REST</a>
+                          <a class="tag" href="/tags/#Travis" title="Travis">Travis</a>
+                        
+                          <a class="tag" href="/tags/#CI" title="CI">CI</a>
+                        
+                          <a class="tag" href="/tags/#GitHub" title="GitHub">GitHub</a>
                         
                     </div>
-                    <h1>Crie sua API REST usando Typescript com ProtonType</h1>
-                    <h2 class="subheading">Express + Sequelize + TypeScript = ProtonType</h2>
+                    <h1>Integração Contínua com Travis CI no Repositório GitHub</h1>
+                    <h2 class="subheading">Configure Integração Contínua de Forma Simples e Rápida no Seu Repositório Github</h2>
                     <span class="meta">
                         Por Humberto Machado em
-                        15-11-2016
+                        23-04-2017
                     </span>
                 </div>
             </div>
@@ -191,32 +187,38 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>Protontype é um módulo Node que ajuda na criação de APIs RESTfull. Tem como objetivo facilitar a criação de objetos de banco de dados, rotas, middlewares e autenticação, tudo isso usando Typescript</p>
-<h1 id="Quick-Start-Criando-uma-API-em-5-passos"><a href="#Quick-Start-Criando-uma-API-em-5-passos" class="headerlink" title="Quick Start - Criando uma API em 5 passos"></a>Quick Start - Criando uma API em 5 passos</h1><h2 id="Estrutura-de-pastas-e-configuracoes-iniciais"><a href="#Estrutura-de-pastas-e-configuracoes-iniciais" class="headerlink" title="Estrutura de pastas e configurações iniciais"></a>Estrutura de pastas e configurações iniciais</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">mkdir proton-quickstart</div><div class="line"><span class="built_in">cd</span> proton-quickstart</div><div class="line">npm init</div><div class="line">mkdir src</div><div class="line">npm install protontype --save</div></pre></td></tr></table></figure>
-<p>Criar o arquivo tsconfig.json na raiz do projeto</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&#123;</div><div class="line">  <span class="attr">"compilerOptions"</span>: &#123;</div><div class="line">    <span class="attr">"target"</span>: <span class="string">"es5"</span>,</div><div class="line">    <span class="attr">"module"</span>: <span class="string">"commonjs"</span>,</div><div class="line">    <span class="attr">"emitDecoratorMetadata"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">"experimentalDecorators"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">"outDir"</span>: <span class="string">"dist"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">"exclude"</span>: [</div><div class="line">    <span class="string">"node_modules"</span>,</div><div class="line">    <span class="string">"dist"</span></div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h2><p>Criar um arquivo ParticlesModel.ts</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; BaseModel, SequelizeBaseModelAttr, Model, DataTypes &#125; <span class="keyword">from</span> <span class="string">'protontype'</span>;</div><div class="line"></div><div class="line">@Model(&#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">"Particles"</span>,</div><div class="line">    <span class="attr">definition</span>: &#123;</div><div class="line">        <span class="attr">name</span>: &#123;</div><div class="line">            <span class="attr">type</span>: DataTypes.STRING</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">symbol</span>: &#123;</div><div class="line">            <span class="attr">type</span>: DataTypes.STRING</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">mass</span>: &#123;</div><div class="line">            <span class="attr">type</span>: DataTypes.BIGINT</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">ParticlesModel</span> <span class="keyword">extends</span> <span class="title">BaseModel</span>&lt;<span class="title">Particle</span>&gt; </span>&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> interface Particle extends SequelizeBaseModelAttr &#123;</div><div class="line">    <span class="attr">name</span>: string;</div><div class="line">    symbol: string;</div><div class="line">    mass: number;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="Router"><a href="#Router" class="headerlink" title="Router"></a>Router</h2><p>Criar arquivo ParticlesRouter.ts</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; ParticlesModel &#125; <span class="keyword">from</span> <span class="string">'./ParticlesModel'</span>;</div><div class="line"><span class="keyword">import</span> &#123; BaseCrudRouter, RouterClass &#125; <span class="keyword">from</span> <span class="string">'protontype'</span>;</div><div class="line"></div><div class="line">@RouterClass(&#123;</div><div class="line">    <span class="attr">baseUrl</span>: <span class="string">'/particles'</span>,</div><div class="line">    <span class="attr">modelInstances</span>: [<span class="keyword">new</span> ParticlesModel()]</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">ParticlesRouter</span> <span class="keyword">extends</span> <span class="title">BaseCrudRouter</span> </span>&#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="Main"><a href="#Main" class="headerlink" title="Main"></a>Main</h2><p>Criar arquivo Main.ts</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; ParticlesRouter &#125; <span class="keyword">from</span> <span class="string">'./ParticlesRouter'</span>;</div><div class="line"><span class="keyword">import</span> &#123; ProtonApplication &#125; <span class="keyword">from</span> <span class="string">'protontype'</span>;</div><div class="line"></div><div class="line"><span class="keyword">new</span> ProtonApplication()</div><div class="line">    .addRouter(<span class="keyword">new</span> ParticlesRouter())</div><div class="line">    .bootstrap();</div></pre></td></tr></table></figure>
-<p><strong>Compilando e Rodando Aplicação</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">tsc</div><div class="line">node dist/Main.ts</div></pre></td></tr></table></figure></p>
-<h2 id="Testando-a-API"><a href="#Testando-a-API" class="headerlink" title="Testando a API"></a>Testando a API</h2><p>Por padrão, a aplicação usará um banco de dados sqlite.<br>Será criado um arquivo proton.sqlite na raiz do projeto.</p>
-<p>Os endpoints abaixo já estarão disponíveis:</p>
-<ul>
-<li><strong>GET /particles</strong> - Lista todos os registos da tabela Particles</li>
-<li><strong>POST /particles</strong> - Cria um registro na tabela Particles</li>
-<li><strong>GET /particles/:id</strong> - Consulta um registro da tabela Particles</li>
-<li><strong>PUT /particles/:id</strong> - Atualiza um registro da tabela Particles</li>
-<li><strong>DELETE /particles/:id</strong> - Remove um registro da tabela Particles</li>
+                <p>O uso de integração contínua é cada vez mais indispensável para garantir a qualidade e o de um projeto, especialmente se for opensource.</p>
+<h2 id="O-que-e-Integracao-Continua"><a href="#O-que-e-Integracao-Continua" class="headerlink" title="O que é Integração Contínua?"></a>O que é Integração Contínua?</h2><p>Em termos simples, integração contínua é a forma de garantir que seu projeto está funcionando a cada modificação do reposítorio, commit ou build. Este processo possibilita testar e fazer build do seu projeto em várias versões de runtime ou em vários ambientes de forma frequente, garantindo a qualidade e o funcionamento daquele módulo. Por exêmplo, a cada push para o GitHub a ferramenta irá clonar o projeto, baixar as dependências e executar os testes.<br>A ferramenta de integração contínua será tão eficiente quanto os testes implementados no seu projeto. Por isso é importante ter uma boa cobertura de testes.</p>
+<p>A ferramenta <a href="https://travis-ci.org/" target="_blank" rel="external">Travis CI</a> faz isso de forma fácil, rápida e simples de configurar. Para habilitar o Travis no seu repositório github é só seguir os passos a baixo.</p>
+<h2 id="Pre-requisitos"><a href="#Pre-requisitos" class="headerlink" title="Pré-requisitos"></a>Pré-requisitos</h2><ul>
+<li>Um projeto nodejs no github</li>
+<li>Implementação de testes</li>
 </ul>
-<p>Podera testar através do app <a href="https://www.getpostman.com/" target="_blank" rel="external">Postman</a> ou outro da sua preferência.</p>
-<p><strong>Código completo do quick start</strong></p>
-<p><a href="https://github.com/linck/proton-quickstart" target="_blank" rel="external">https://github.com/linck/proton-quickstart</a></p>
-<h2 id="Exemplo"><a href="#Exemplo" class="headerlink" title="Exemplo"></a>Exemplo</h2><p><a href="https://github.com/linck/protontype-example" target="_blank" rel="external">https://github.com/linck/protontype-example</a></p>
-<h2 id="Projeto"><a href="#Projeto" class="headerlink" title="Projeto"></a>Projeto</h2><p><a href="https://github.com/linck/protontype" target="_blank" rel="external">https://github.com/linck/protontype</a></p>
-<h2 id="Documentacao"><a href="#Documentacao" class="headerlink" title="Documentação"></a>Documentação</h2><p><a href="https://linck.github.io/protontype-docs" target="_blank" rel="external">https://linck.github.io/protontype-docs</a></p>
+<p>Caso queira poderá clonar ou consultar o <a href="git@github.com:DevLogger/travis-ci-example.git">repositório de exemplo</a> deste post no GitHub do Devlog</p>
+<h2 id="Configurar-para-execucao-dos-testes-do-seu-projeto-NodeJS"><a href="#Configurar-para-execucao-dos-testes-do-seu-projeto-NodeJS" class="headerlink" title="Configurar para execução dos testes do seu projeto NodeJS"></a>Configurar para execução dos testes do seu projeto NodeJS</h2><p>O Travis CI roda por padrão o comando <strong>npm test</strong> para executar os testes do projeto.<br>Configure o sript <strong>test</strong> no seu <strong>package.json</strong> para executar os testes com sua ferramenta preferida. No exemplo abaixo usamos o <a href="https://mochajs.org/#getting-started" target="_blank" rel="external">Mocha</a> para execução dos testes.</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">"scripts": &#123;</div><div class="line">    "test": "mocha"</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Criar-arquivo-travis-yml-na-raiz-do-projeto"><a href="#Criar-arquivo-travis-yml-na-raiz-do-projeto" class="headerlink" title="Criar arquivo .travis.yml na raiz do projeto"></a>Criar arquivo .travis.yml na raiz do projeto</h2><figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="attr">language:</span> node_js</div><div class="line"><span class="attr">node_js:</span></div><div class="line"><span class="bullet">  -</span> <span class="string">"5"</span></div><div class="line"><span class="bullet">  -</span> <span class="string">"6"</span></div><div class="line"><span class="bullet">  -</span> <span class="string">"7"</span></div></pre></td></tr></table></figure>
+<p>O campo <strong><em>node_js</em></strong> indica para quais versões do NodeJS queremos que o Travis CI rode o processo de integração contínua. Neste caso ele fará o build e rodará os testes 3 vezes: uma para versão 5, outra para versão 6 e outra para a versão 7 do NodeJS.</p>
+<p>Agora faça push de todas as alterações par ao GitHub</p>
+<h2 id="Criar-uma-conta-no-Travis"><a href="#Criar-uma-conta-no-Travis" class="headerlink" title="Criar uma conta no Travis"></a>Criar uma conta no Travis</h2><ul>
+<li>Acesse o site do <a href="https://travis-ci.org/" target="_blank" rel="external">Travis CI</a></li>
+<li>Crie uma conta. Podemos fazer o login através da conta do GitHub</li>
+<li>Habilite seu projeto</li>
+</ul>
+<h2 id="Teste"><a href="#Teste" class="headerlink" title="Teste"></a>Teste</h2><p>Agora faça uma modificação em algum arquivo, commite e faça um push para o GitHub.<br>Pronto, verifique lá no site do <a href="https://travis-ci.org/" target="_blank" rel="external">Travis CI</a> que ele está executando o build do seu projeto e executando os testes.</p>
+<p>Pronto! Seu projeto já estará rodando uma Integraçao Contínua.</p>
+<h1 id="Exibindo-Status-do-Build-no-GitHub"><a href="#Exibindo-Status-do-Build-no-GitHub" class="headerlink" title="Exibindo Status do Build no GitHub"></a>Exibindo Status do Build no GitHub</h1><ul>
+<li><p>No site do travis clique na imagem:<br><img src="build-status.png" alt="Build Status"></p>
+</li>
+<li><p>Escola a opção markdown<br><img src="build-status2.png" alt="Build Status Markdown"></p>
+</li>
+<li><p>Coloque no seu readme.md</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[<span class="string">![Build Status</span>](<span class="link">https://travis-ci.org/linck/protontype.svg?branch=develop</span>)](<span class="link">https://travis-ci.org/linck/protontype</span>)</div><div class="line"></div><div class="line">Exemplo de Integração Contínua com Travis CI</div></pre></td></tr></table></figure>
+</li>
+<li><p>Resultado<br><img src="build-status3.png" alt="Build Status Resultado"></p>
+</li>
+</ul>
+<p>Obs: Verifique se o parâmetro <strong>?branch=develop</strong> está apontando para branch correta</p>
 
 
                 <ul class="share-buttons list-inline">
@@ -237,10 +239,10 @@
 
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/typescript-duplicate-identifier/" data-toggle="tooltip" data-placement="top" title="TypeScript - Resolvendo o Duplicate Identifier Error">&larr; Previous Post</a>
-                        </li>
                     
+                        <li class="next">
+                            <a href="/deploy-ionic-heroku/" data-toggle="tooltip" data-placement="top" title="Fazendo deploy de aplicativo Ionic no Heroku">Next Post &rarr;</a>
+                        </li>
                     
                 </ul>
 
@@ -272,17 +274,13 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
-                        
-                          <a class="tag" href="/tags/#TypeScript" title="TypeScript">TypeScript</a>
-                        
-                          <a class="tag" href="/tags/#Express" title="Express">Express</a>
-                        
-                          <a class="tag" href="/tags/#Sequelize" title="Sequelize">Sequelize</a>
-                        
                           <a class="tag" href="/tags/#NodeJS" title="NodeJS">NodeJS</a>
                         
-                          <a class="tag" href="/tags/#REST" title="REST">REST</a>
+                          <a class="tag" href="/tags/#Travis" title="Travis">Travis</a>
+                        
+                          <a class="tag" href="/tags/#CI" title="CI">CI</a>
+                        
+                          <a class="tag" href="/tags/#GitHub" title="GitHub">GitHub</a>
                         
                     </div>
                 </section>
@@ -316,8 +314,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "devlogg";
-    var disqus_identifier = "http://devlog.com.br/crie-api-rest-protontype/";
-    var disqus_url = "http://devlog.com.br/crie-api-rest-protontype/";
+    var disqus_identifier = "http://devlog.com.br/usando-travis-ci-github/";
+    var disqus_url = "http://devlog.com.br/usando-travis-ci-github/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
