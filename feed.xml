@@ -8,7 +8,7 @@
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Sun, 23 Apr 2017 17:12:41 GMT</pubDate>
+    <pubDate>Sun, 23 Apr 2017 18:00:13 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -29,8 +29,9 @@
 <li>Um projeto nodejs no github</li>
 <li>Implementação de testes</li>
 </ul>
-<p>Caso queira poderá clonar ou consultar o <a href="git@github.com:DevLogger/travis-ci-example.git">repositório de exemplo</a> deste post no GitHub do Devlog</p>
-<h2 id="Configurar-para-execucao-dos-testes-do-seu-projeto-NodeJS"><a href="#Configurar-para-execucao-dos-testes-do-seu-projeto-NodeJS" class="headerlink" title="Configurar para execução dos testes do seu projeto NodeJS"></a>Configurar para execução dos testes do seu projeto NodeJS</h2><p>O Travis CI roda por padrão o comando <strong>npm test</strong> para executar os testes do projeto.<br>Configure o sript <strong>test</strong> no seu <strong>package.json</strong> para executar os testes com sua ferramenta preferida. No exemplo abaixo usamos o <a href="https://mochajs.org/#getting-started" target="_blank" rel="external">Mocha</a> para execução dos testes.</p>
+<p>Caso queira poderá clonar ou consultar o <a href="https://github.com/DevLogger/travis-ci-example" target="_blank" rel="external">repositório de exemplo</a> deste post no GitHub do Devlog</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone git@github.com:DevLogger/travis-ci-example.git</div></pre></td></tr></table></figure>
+<h2 id="Configurar-execucao-dos-testes-do-projeto-NodeJS"><a href="#Configurar-execucao-dos-testes-do-projeto-NodeJS" class="headerlink" title="Configurar execução dos testes do projeto NodeJS"></a>Configurar execução dos testes do projeto NodeJS</h2><p>O Travis CI roda por padrão o comando <strong>npm test</strong> para executar os testes do projeto.<br>Configure o sript <strong>test</strong> no seu <strong>package.json</strong> para executar os testes com sua ferramenta preferida. No exemplo abaixo usamos o <a href="https://mochajs.org/#getting-started" target="_blank" rel="external">Mocha</a> para execução dos testes.</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">"scripts": &#123;</div><div class="line">    "test": "mocha"</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="Criar-arquivo-travis-yml-na-raiz-do-projeto"><a href="#Criar-arquivo-travis-yml-na-raiz-do-projeto" class="headerlink" title="Criar arquivo .travis.yml na raiz do projeto"></a>Criar arquivo .travis.yml na raiz do projeto</h2><figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="attr">language:</span> node_js</div><div class="line"><span class="attr">node_js:</span></div><div class="line"><span class="bullet">  -</span> <span class="string">"5"</span></div><div class="line"><span class="bullet">  -</span> <span class="string">"6"</span></div><div class="line"><span class="bullet">  -</span> <span class="string">"7"</span></div></pre></td></tr></table></figure>
 <p>O campo <strong><em>node_js</em></strong> indica para quais versões do NodeJS queremos que o Travis CI rode o processo de integração contínua. Neste caso ele fará o build e rodará os testes 3 vezes: uma para versão 5, outra para versão 6 e outra para a versão 7 do NodeJS.</p>

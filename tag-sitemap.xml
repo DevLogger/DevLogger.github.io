@@ -16,7 +16,14 @@
     </url>
 
     <url>
-        <loc>http://devlog.com.br/tags/JavaScript/</loc>
+        <loc>http://devlog.com.br/tags/Express/</loc>
+        <lastmod>2017-04-17T02:14:29.586Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://devlog.com.br/tags/REST/</loc>
         <lastmod>2017-04-17T02:14:29.586Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -30,7 +37,7 @@
     </url>
 
     <url>
-        <loc>http://devlog.com.br/tags/Express/</loc>
+        <loc>http://devlog.com.br/tags/JavaScript/</loc>
         <lastmod>2017-04-17T02:14:29.586Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -38,13 +45,6 @@
 
     <url>
         <loc>http://devlog.com.br/tags/Sequelize/</loc>
-        <lastmod>2017-04-17T02:14:29.586Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://devlog.com.br/tags/REST/</loc>
         <lastmod>2017-04-17T02:14:29.586Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -73,28 +73,28 @@
 
     <url>
         <loc>http://devlog.com.br/tags/NodeJS/</loc>
-        <lastmod>2017-04-23T17:12:41.430Z</lastmod>
+        <lastmod>2017-04-23T18:00:13.802Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://devlog.com.br/tags/Travis/</loc>
-        <lastmod>2017-04-23T17:12:41.430Z</lastmod>
+        <lastmod>2017-04-23T18:00:13.802Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://devlog.com.br/tags/CI/</loc>
-        <lastmod>2017-04-23T17:12:41.430Z</lastmod>
+        <lastmod>2017-04-23T18:00:13.802Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://devlog.com.br/tags/GitHub/</loc>
-        <lastmod>2017-04-23T17:12:41.430Z</lastmod>
+        <lastmod>2017-04-23T18:00:13.802Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
