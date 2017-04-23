@@ -27,8 +27,13 @@ A ferramenta [Travis CI](https://travis-ci.org/) faz isso de forma fácil, rápi
 - Um projeto nodejs no github
 - Implementação de testes
 
-Caso queira poderá clonar ou consultar o [repositório de exemplo](git@github.com:DevLogger/travis-ci-example.git) deste post no GitHub do Devlog
-## Configurar para execução dos testes do seu projeto NodeJS
+Caso queira poderá clonar ou consultar o [repositório de exemplo](https://github.com/DevLogger/travis-ci-example) deste post no GitHub do Devlog
+
+```cmd
+git clone git@github.com:DevLogger/travis-ci-example.git
+```
+
+## Configurar execução dos testes do projeto NodeJS
 
 O Travis CI roda por padrão o comando **npm test** para executar os testes do projeto.
 Configure o sript **test** no seu **package.json** para executar os testes com sua ferramenta preferida. No exemplo abaixo usamos o [Mocha](https://mochajs.org/#getting-started) para execução dos testes.
