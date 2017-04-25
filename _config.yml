@@ -9,6 +9,7 @@ description:
 author: DevLog
 language:
 timezone:
+cname: devlog.com.br
 
 # Site settings
 SEOTitle: DevLog Blog
