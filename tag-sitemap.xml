@@ -2,41 +2,6 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>http://devlog.com.br/tags/VScode/</loc>
-        <lastmod>2017-04-17T01:25:00.092Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://devlog.com.br/tags/Editors/</loc>
-        <lastmod>2017-04-17T01:25:00.092Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://devlog.com.br/tags/Express/</loc>
-        <lastmod>2017-04-17T02:14:29.586Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://devlog.com.br/tags/REST/</loc>
-        <lastmod>2017-04-17T02:14:29.586Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://devlog.com.br/tags/TypeScript/</loc>
-        <lastmod>2017-04-17T02:14:29.586Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://devlog.com.br/tags/JavaScript/</loc>
         <lastmod>2017-04-17T02:14:29.586Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -51,50 +16,85 @@
     </url>
 
     <url>
-        <loc>http://devlog.com.br/tags/Heroku/</loc>
-        <lastmod>2017-04-18T22:34:03.170Z</lastmod>
+        <loc>http://devlog.com.br/tags/Express/</loc>
+        <lastmod>2017-04-23T23:39:37.724Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://devlog.com.br/tags/Web/</loc>
-        <lastmod>2017-04-18T22:34:03.170Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://devlog.com.br/tags/Ionic-Framework/</loc>
-        <lastmod>2017-04-18T22:34:03.170Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://devlog.com.br/tags/NodeJS/</loc>
-        <lastmod>2017-04-23T18:00:13.802Z</lastmod>
+        <loc>http://devlog.com.br/tags/REST/</loc>
+        <lastmod>2017-04-23T23:39:37.724Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://devlog.com.br/tags/Travis/</loc>
-        <lastmod>2017-04-23T18:00:13.802Z</lastmod>
+        <lastmod>2017-04-23T23:39:53.642Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://devlog.com.br/tags/CI/</loc>
-        <lastmod>2017-04-23T18:00:13.802Z</lastmod>
+        <lastmod>2017-04-23T23:39:53.642Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://devlog.com.br/tags/GitHub/</loc>
-        <lastmod>2017-04-23T18:00:13.802Z</lastmod>
+        <lastmod>2017-04-23T23:39:53.642Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://devlog.com.br/tags/NodeJS/</loc>
+        <lastmod>2017-04-23T23:40:50.799Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://devlog.com.br/tags/Heroku/</loc>
+        <lastmod>2017-04-23T23:40:50.799Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://devlog.com.br/tags/Ionic-Framework/</loc>
+        <lastmod>2017-04-23T23:40:50.799Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://devlog.com.br/tags/VScode/</loc>
+        <lastmod>2017-04-23T23:41:00.781Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://devlog.com.br/tags/Editors/</loc>
+        <lastmod>2017-04-23T23:41:00.781Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://devlog.com.br/tags/Tools/</loc>
+        <lastmod>2017-04-23T23:41:00.781Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://devlog.com.br/tags/TypeScript/</loc>
+        <lastmod>2017-04-23T23:41:10.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

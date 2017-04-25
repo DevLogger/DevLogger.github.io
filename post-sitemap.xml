@@ -7,8 +7,16 @@
     </url>
 
     <url>
-        <loc>http://devlog.com.br/usando-travis-ci-github/</loc>
-        <lastmod>2017-04-23T18:00:13.802Z</lastmod>
+        <loc>http://devlog.com.br/typescript-construtor/</loc>
+        <lastmod>2017-04-23T23:41:10.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://devlog.com.br/usando-emmet-vscode/</loc>
+        <lastmod>2017-04-23T23:41:00.781Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -16,7 +24,31 @@
 
     <url>
         <loc>http://devlog.com.br/deploy-ionic-heroku/</loc>
-        <lastmod>2017-04-18T22:34:03.170Z</lastmod>
+        <lastmod>2017-04-23T23:40:50.799Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://devlog.com.br/usando-travis-ci-github/</loc>
+        <lastmod>2017-04-23T23:39:53.642Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://devlog.com.br/testando-apis-rest-postman/</loc>
+        <lastmod>2017-04-23T23:39:37.724Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://devlog.com.br/typescript-duplicate-identifier/</loc>
+        <lastmod>2017-04-23T23:37:50.217Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -25,38 +57,6 @@
     <url>
         <loc>http://devlog.com.br/crie-api-rest-protontype/</loc>
         <lastmod>2017-04-17T02:14:29.586Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://devlog.com.br/typescript-construtor/</loc>
-        <lastmod>2017-04-17T01:25:00.098Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://devlog.com.br/usando-emmet-vscode/</loc>
-        <lastmod>2017-04-17T01:25:00.092Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://devlog.com.br/typescript-duplicate-identifier/</loc>
-        <lastmod>2017-04-17T01:25:00.088Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://devlog.com.br/testando-apis-rest-postman/</loc>
-        <lastmod>2017-04-17T01:25:00.082Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
