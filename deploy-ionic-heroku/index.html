@@ -192,19 +192,19 @@
 <li>Criar um repositório no github</li>
 <li>Criar um projeto npm com a dependência do express</li>
 </ul>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm init</div><div class="line">npm install express --save</div></pre></td></tr></table></figure>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm init</span><br><span class="line">npm install express --save</span><br></pre></td></tr></table></figure>
 <ul>
 <li>Copiar a pasta www do projeto ionic para o projeto criado</li>
 <li>Criar um servidor em node + express para servir o index.html da pasta www</li>
 <li>Crie um arquivo <strong>server.js</strong> na raiz do projeto:</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>),</div><div class="line">    app = express();</div><div class="line"></div><div class="line">app.use(express.static(<span class="string">'www'</span>));</div><div class="line"></div><div class="line"><span class="comment">// CORS (Cross-Origin Resource Sharing) headers to support Cross-site HTTP requests</span></div><div class="line">app.all(<span class="string">'*'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>&#123;</div><div class="line">    res.header(<span class="string">"Access-Control-Allow-Origin"</span>, <span class="string">"*"</span>);</div><div class="line">    res.header(<span class="string">"Access-Control-Allow-Headers"</span>, <span class="string">"X-Requested-With"</span>);</div><div class="line">    next();</div><div class="line">&#125;);</div><div class="line"></div><div class="line">app.set(<span class="string">'port'</span>, process.env.PORT || <span class="number">5000</span>);</div><div class="line"></div><div class="line">app.listen(app.get(<span class="string">'port'</span>), <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Express server listening on port '</span> + app.get(<span class="string">'port'</span>));</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>),</span><br><span class="line">    app = express();</span><br><span class="line"></span><br><span class="line">app.use(express.static(<span class="string">'www'</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// CORS (Cross-Origin Resource Sharing) headers to support Cross-site HTTP requests</span></span><br><span class="line">app.all(<span class="string">'*'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">    res.header(<span class="string">"Access-Control-Allow-Origin"</span>, <span class="string">"*"</span>);</span><br><span class="line">    res.header(<span class="string">"Access-Control-Allow-Headers"</span>, <span class="string">"X-Requested-With"</span>);</span><br><span class="line">    next();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.set(<span class="string">'port'</span>, process.env.PORT || <span class="number">5000</span>);</span><br><span class="line"></span><br><span class="line">app.listen(app.get(<span class="string">'port'</span>), <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Express server listening on port '</span> + app.get(<span class="string">'port'</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <ul>
 <li>Commit e push seu projeto no repositório criado</li>
 </ul>
 <h1 id="Fazendo-Deploy-no-Heroku"><a href="#Fazendo-Deploy-no-Heroku" class="headerlink" title="Fazendo Deploy no Heroku"></a>Fazendo Deploy no Heroku</h1><ul>
 <li>Crie uma conta no Heroku</li>
-<li>Acesse <a href="https://dashboard.heroku.com/" target="_blank" rel="external">https://dashboard.heroku.com/</a></li>
+<li>Acesse <a href="https://dashboard.heroku.com/" target="_blank" rel="noopener">https://dashboard.heroku.com/</a></li>
 <li>Vá na opção new &gt; create new app</li>
 <li>Dê um nome pro projeto e clique em “Create new app”</li>
 <li>Na sessão “Deployment method” escolha GitHub</li>
@@ -214,7 +214,7 @@
 <li>Clique em View</li>
 </ul>
 <p>Pronto! Agora é só aproveitar</p>
-<h1 id="Repositorio-Exemplo"><a href="#Repositorio-Exemplo" class="headerlink" title="Repositório Exemplo"></a>Repositório Exemplo</h1><p><a href="https://github.com/DevLogger/heroku-github" target="_blank" rel="external">https://github.com/DevLogger/heroku-github</a></p>
+<h1 id="Repositorio-Exemplo"><a href="#Repositorio-Exemplo" class="headerlink" title="Repositório Exemplo"></a>Repositório Exemplo</h1><p><a href="https://github.com/DevLogger/heroku-github" target="_blank" rel="noopener">https://github.com/DevLogger/heroku-github</a></p>
 
 
                 <ul class="share-buttons list-inline">
@@ -378,7 +378,7 @@
 
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; DevLog 2017 
+                    Copyright &copy; DevLog 2018 
                     <br>    
                     Developed with <span class="love">❤</span> by DevLog Team
                     <br> 

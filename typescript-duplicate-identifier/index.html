@@ -182,18 +182,18 @@
                 post-container">
 
                 <h1 id="TypeScript-Resolvendo-o-Duplicate-Identifier-Error"><a href="#TypeScript-Resolvendo-o-Duplicate-Identifier-Error" class="headerlink" title="TypeScript - Resolvendo o Duplicate Identifier Error"></a>TypeScript - Resolvendo o Duplicate Identifier Error</h1><p>Um dos problemas mais chatos que você pode encontrar quando for usar TypeScript é:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Duplicate identifier...</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Duplicate identifier...</span><br></pre></td></tr></table></figure>
 <p>Isto acontece quando o compilador tenta carregar o mesmo módulo ou definição (.d.ts) mais de uma vez, identificando que este está duplicado. Quando se instala uma dependência via <strong><em>npm install</em></strong>, o <strong><em>npm</em></strong> já identifica se o módulo está baixado evitando duplicação, mas, se você esta usando módulos locais com <strong><em>npm link</em></strong>, é quase certo que terá este problema.</p>
 <p>Este erro não impede que o JavaScript seja gerado, mas aqui pra nós, é muito chato ver milhares de erro no seu console quando mandamos executar ou compilar algo.</p>
-<h2 id="Resolucao"><a href="#Resolucao" class="headerlink" title="Resolução"></a>Resolução</h2><h4 id="Atualize-a-versao-do-TypeScript"><a href="#Atualize-a-versao-do-TypeScript" class="headerlink" title="Atualize a versao do TypeScript"></a>Atualize a versao do TypeScript</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install typescript -g</div></pre></td></tr></table></figure>
+<h2 id="Resolucao"><a href="#Resolucao" class="headerlink" title="Resolução"></a>Resolução</h2><h4 id="Atualize-a-versao-do-TypeScript"><a href="#Atualize-a-versao-do-TypeScript" class="headerlink" title="Atualize a versao do TypeScript"></a>Atualize a versao do TypeScript</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install typescript -g</span><br></pre></td></tr></table></figure>
 <h4 id="Configuracao-do-compilador"><a href="#Configuracao-do-compilador" class="headerlink" title="Configuração do compilador"></a>Configuração do compilador</h4><p>Coloque esta configuração do seu <strong>tsconfig.json</strong>:</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">"compilerOptions" &#123;</div><div class="line">     ....</div><div class="line">    "baseUrl": "./",</div><div class="line">    "paths": &#123;</div><div class="line">        "*": [ "node_modules/@types/*", "*"]</div><div class="line">    &#125;</div><div class="line">   ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"compilerOptions"</span> &#123;</span><br><span class="line">     ....</span><br><span class="line">    "baseUrl": "./",</span><br><span class="line">    "paths": &#123;</span><br><span class="line">        "*": [ "node_modules/@types/*", "*"]</span><br><span class="line">    &#125;</span><br><span class="line">   ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Isto informará ao compilador que quando ele for resolver um módulo qualquer, procure primeiro em  <code>.\node_modules\@types\</code> e so depois nos demais locais, evitando a duplicidade do carregamento.</p>
 <h2 id="Referencias"><a href="#Referencias" class="headerlink" title="Referências"></a>Referências</h2><ul>
-<li><a href="https://www.typescriptlang.org/docs/handbook/module-resolution.html" target="_blank" rel="external">https://www.typescriptlang.org/docs/handbook/module-resolution.html</a></li>
-<li><a href="https://github.com/Microsoft/TypeScript/issues/11916#event-853609143" target="_blank" rel="external">https://github.com/Microsoft/TypeScript/issues/11916#event-853609143</a>   </li>
+<li><a href="https://www.typescriptlang.org/docs/handbook/module-resolution.html" target="_blank" rel="noopener">https://www.typescriptlang.org/docs/handbook/module-resolution.html</a></li>
+<li><a href="https://github.com/Microsoft/TypeScript/issues/11916#event-853609143" target="_blank" rel="noopener">https://github.com/Microsoft/TypeScript/issues/11916#event-853609143</a>   </li>
 </ul>
-<p><em>Obrigado <a href="https://github.com/mhegazy" target="_blank" rel="external">@mhegazy</a> pela dica!!</em></p>
+<p><em>Obrigado <a href="https://github.com/mhegazy" target="_blank" rel="noopener">@mhegazy</a> pela dica!!</em></p>
 
 
                 <ul class="share-buttons list-inline">
@@ -351,7 +351,7 @@
 
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; DevLog 2017 
+                    Copyright &copy; DevLog 2018 
                     <br>    
                     Developed with <span class="love">❤</span> by DevLog Team
                     <br> 

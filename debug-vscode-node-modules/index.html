@@ -14,11 +14,11 @@
 
     <title>
         
-          Usando Emmet Snippets no VSCode - DevLog Blog
+          VS Code - Debugando módulos instalados em node_modules - DevLog Blog
         
     </title>
 
-    <link rel="canonical" href="http://devlog.com.br/usando-emmet-vscode/">
+    <link rel="canonical" href="http://devlog.com.br/debug-vscode-node-modules/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -142,7 +142,7 @@
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
-        background-image: url('/img/emmet-title.png');
+        background-image: url('/img/vscode-debug.png');
         -webkit-background-size: cover;
         -moz-background-size: cover;
         background-size: cover;
@@ -155,6 +155,8 @@
                 <div class="post-heading">
                     <div class="tags">
                         
+                          <a class="tag" href="/tags/#NodeJS" title="NodeJS">NodeJS</a>
+                        
                           <a class="tag" href="/tags/#Tools" title="Tools">Tools</a>
                         
                           <a class="tag" href="/tags/#VScode" title="VScode">VScode</a>
@@ -162,11 +164,11 @@
                           <a class="tag" href="/tags/#Editors" title="Editors">Editors</a>
                         
                     </div>
-                    <h1>Usando Emmet Snippets no VSCode</h1>
-                    <h2 class="subheading">Rápido, eficiente e divertido!</h2>
+                    <h1>VS Code - Debugando módulos instalados em node_modules</h1>
+                    <h2 class="subheading">Como incluir suas libs no contexto do debugger</h2>
                     <span class="meta">
                         Por Humberto Machado em
-                        11-01-2017
+                        22-04-2018
                     </span>
                 </div>
             </div>
@@ -185,17 +187,11 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>Você conhece o Emmet Snippets? Ele é muito legal, permite escrevermos códigos html repetitivos usando expressões simples.<br>O VSCode nos permite usar essa maravilha, somente por escrevermos a expressão e apertamos Tab. Veja abaixo:</p>
-<p><img src="emmet1.gif" alt="Emmet1"></p>
-<p><img src="emmet2.gif" alt="Emmet1"></p>
-<p>Simples não é?</p>
-<p>Agora é só se divertir olhando a infinidade de expressões que podemos usar aqui: <a href="http://docs.emmet.io/cheat-sheet/" target="_blank" rel="noopener">http://docs.emmet.io/cheat-sheet/</a></p>
-<p>Para saber mais:</p>
-<ul>
-<li><a href="http://docs.emmet.io/" target="_blank" rel="noopener">http://docs.emmet.io/</a> (Dá uma olhada no vídeo de demonstração)</li>
-<li><a href="https://code.visualstudio.com/Docs/languages/html" target="_blank" rel="noopener">https://code.visualstudio.com/Docs/languages/html</a></li>
-</ul>
-
+                <h1 id="VSCode-Debugando-modulos-instalados-em-node-modules"><a href="#VSCode-Debugando-modulos-instalados-em-node-modules" class="headerlink" title="VSCode: Debugando módulos instalados em node_modules"></a>VSCode: Debugando módulos instalados em node_modules</h1><p>Para debugar códigos que estão na pasta node_modules, basta informar no <strong>launch.json</strong>, na propriedade <strong>outFiles</strong>, o caminho dos arquivos que o debugger deve colocar no seu escopo.</p>
+<p>Pode exemplo, se quizermos que o debugger pare em algum breakpoint no módulo express:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    // Use IntelliSense to learn about possible Node.js debug attributes.</span><br><span class="line">    // Hover to view descriptions of existing attributes.</span><br><span class="line">    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387</span><br><span class="line">    "version": "0.2.0",</span><br><span class="line">    "configurations": [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"type"</span>: <span class="string">"node"</span>,</span><br><span class="line">            <span class="attr">"request"</span>: <span class="string">"launch"</span>,</span><br><span class="line">            <span class="attr">"name"</span>: <span class="string">"Launch Program"</span>,</span><br><span class="line">            <span class="attr">"program"</span>: <span class="string">"$&#123;workspaceRoot&#125;/dist/main.js"</span>,</span><br><span class="line">            <span class="attr">"sourceMaps"</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="attr">"outFiles"</span>: [</span><br><span class="line">                <span class="string">"$&#123;workspaceRoot&#125;/node_modules/express/lib/**/*.js"</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">"console"</span>: <span class="string">"integratedTerminal"</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>O trecho abaixo faz com que o debugger do node inclua todos arquivos javascript da pasta lib do módulo express, assim podemos colocar breakpoints neles.</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    ...</span><br><span class="line">    "outFiles": [</span><br><span class="line">        <span class="string">"$&#123;workspaceRoot&#125;/node_modules/express/lib/**/*.js"</span></span><br><span class="line">    ],</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
                 <ul class="share-buttons list-inline">
                     <li><a href="https://plus.google.com/share?url=" target="_blank" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=' + encodeURIComponent(document.URL)); return false;"><img alt="Share on Google+" src="/img/icons/Google+.png"></a></li>
@@ -216,12 +212,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/deploy-ionic-heroku/" data-toggle="tooltip" data-placement="top" title="Fazendo deploy de aplicativo Ionic no Heroku">&larr; Previous Post</a>
+                            <a href="/sql-next-rows/" data-toggle="tooltip" data-placement="top" title="Obtendo Informações de Outras Linhas no Mesmo Select">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/typescript-construtor/" data-toggle="tooltip" data-placement="top" title="TypeScript - Declarando propriedades de uma classe direto no construtor">Next Post &rarr;</a>
+                            <a href="/usando-travis-ci-github/" data-toggle="tooltip" data-placement="top" title="Integração Contínua com Travis CI no Repositório GitHub">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -254,6 +250,8 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
+                          <a class="tag" href="/tags/#NodeJS" title="NodeJS">NodeJS</a>
+                        
                           <a class="tag" href="/tags/#Tools" title="Tools">Tools</a>
                         
                           <a class="tag" href="/tags/#VScode" title="VScode">VScode</a>
@@ -292,8 +290,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "devlogg";
-    var disqus_identifier = "http://devlog.com.br/usando-emmet-vscode/";
-    var disqus_url = "http://devlog.com.br/usando-emmet-vscode/";
+    var disqus_identifier = "http://devlog.com.br/debug-vscode-node-modules/";
+    var disqus_url = "http://devlog.com.br/debug-vscode-node-modules/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

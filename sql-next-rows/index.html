@@ -14,11 +14,11 @@
 
     <title>
         
-          Usando Emmet Snippets no VSCode - DevLog Blog
+          Obtendo Informações de Outras Linhas no Mesmo Select - DevLog Blog
         
     </title>
 
-    <link rel="canonical" href="http://devlog.com.br/usando-emmet-vscode/">
+    <link rel="canonical" href="http://devlog.com.br/sql-next-rows/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -142,7 +142,7 @@
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
-        background-image: url('/img/emmet-title.png');
+        background-image: url('/img/sql-next-rows.jpg');
         -webkit-background-size: cover;
         -moz-background-size: cover;
         background-size: cover;
@@ -155,18 +155,16 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                          <a class="tag" href="/tags/#Tools" title="Tools">Tools</a>
+                          <a class="tag" href="/tags/#SQL" title="SQL">SQL</a>
                         
-                          <a class="tag" href="/tags/#VScode" title="VScode">VScode</a>
-                        
-                          <a class="tag" href="/tags/#Editors" title="Editors">Editors</a>
+                          <a class="tag" href="/tags/#DB" title="DB">DB</a>
                         
                     </div>
-                    <h1>Usando Emmet Snippets no VSCode</h1>
-                    <h2 class="subheading">Rápido, eficiente e divertido!</h2>
+                    <h1>Obtendo Informações de Outras Linhas no Mesmo Select</h1>
+                    <h2 class="subheading">Como saber o valor da linha anterior e da próxima</h2>
                     <span class="meta">
                         Por Humberto Machado em
-                        11-01-2017
+                        22-04-2018
                     </span>
                 </div>
             </div>
@@ -185,16 +183,113 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>Você conhece o Emmet Snippets? Ele é muito legal, permite escrevermos códigos html repetitivos usando expressões simples.<br>O VSCode nos permite usar essa maravilha, somente por escrevermos a expressão e apertamos Tab. Veja abaixo:</p>
-<p><img src="emmet1.gif" alt="Emmet1"></p>
-<p><img src="emmet2.gif" alt="Emmet1"></p>
-<p>Simples não é?</p>
-<p>Agora é só se divertir olhando a infinidade de expressões que podemos usar aqui: <a href="http://docs.emmet.io/cheat-sheet/" target="_blank" rel="noopener">http://docs.emmet.io/cheat-sheet/</a></p>
-<p>Para saber mais:</p>
-<ul>
-<li><a href="http://docs.emmet.io/" target="_blank" rel="noopener">http://docs.emmet.io/</a> (Dá uma olhada no vídeo de demonstração)</li>
-<li><a href="https://code.visualstudio.com/Docs/languages/html" target="_blank" rel="noopener">https://code.visualstudio.com/Docs/languages/html</a></li>
-</ul>
+                <h1 id="Obter-Informacoes-de-Outras-Linhas-no-Mesmo-Select"><a href="#Obter-Informacoes-de-Outras-Linhas-no-Mesmo-Select" class="headerlink" title="Obter Informações de Outras Linhas no Mesmo Select"></a>Obter Informações de Outras Linhas no Mesmo Select</h1><p>Tendo um banco de dados para controle de despesas:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> despesas</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>valor</th>
+<th>descricao     </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>12,00</td>
+<td>Almoço         </td>
+</tr>
+<tr>
+<td>2</td>
+<td>150,00</td>
+<td>Gasolina       </td>
+</tr>
+<tr>
+<td>3</td>
+<td>30,00</td>
+<td>Jantar         </td>
+</tr>
+<tr>
+<td>4</td>
+<td>61,00</td>
+<td>Conta de água  </td>
+</tr>
+<tr>
+<td>5</td>
+<td>180,00</td>
+<td>Conta de Luz   </td>
+</tr>
+<tr>
+<td>6</td>
+<td>100,00</td>
+<td>Internet    </td>
+</tr>
+</tbody>
+</table>
+<p>Agora queremos exibir na mesma consulta, a despesa anterior, a atual e a próxima despesa do mês.<br>Para isso precisamos saber qual o valor da linha anterior e o valor da linha posterior do select.</p>
+<p>Para isso precisamos fazer LEFT JOIN com a própria tabela. Veja o exemplo:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> </span><br><span class="line">    prev.descricao <span class="keyword">as</span> DESPESA_ANTERIOR,</span><br><span class="line">    main.descricao DESPESA_ATUAL,</span><br><span class="line">    next.descricao <span class="keyword">as</span> DESPESA_POSTERIOR</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    despesas <span class="keyword">main</span> </span><br><span class="line">    <span class="keyword">left</span> <span class="keyword">join</span> despesas <span class="keyword">next</span> <span class="keyword">on</span> main.id = next.id - <span class="number">1</span></span><br><span class="line">    <span class="keyword">left</span> <span class="keyword">join</span> despesas prev <span class="keyword">on</span> main.id = prev.id + <span class="number">1</span></span><br><span class="line">    <span class="keyword">order</span> <span class="keyword">by</span> main.dia;</span><br></pre></td></tr></table></figure>
+<p>Resultado:</p>
+<table>
+<thead>
+<tr>
+<th>DESPESA_ANTERIOR</th>
+<th>DESPESA_ATUAL</th>
+<th>DESPESA_POSTERIOR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(null)</td>
+<td>Almoço</td>
+<td>Gasolina</td>
+</tr>
+<tr>
+<td>Almoço</td>
+<td>Gasolina</td>
+<td>Jantar</td>
+</tr>
+<tr>
+<td>Gasolina</td>
+<td>Jantar</td>
+<td>Conta de água</td>
+</tr>
+<tr>
+<td>Jantar</td>
+<td>Conta de água</td>
+<td>Conta de luz</td>
+</tr>
+<tr>
+<td>Conta de água</td>
+<td>Conta de luz</td>
+<td>Internet</td>
+</tr>
+<tr>
+<td>Conta de luz</td>
+<td>Internet</td>
+<td>(null)</td>
+</tr>
+</tbody>
+</table>
+<p>Para saber as despesas anterioes e posteriores ao dia 3:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> </span><br><span class="line">    prev.descricao <span class="keyword">as</span> DESPESA_ANTERIOR,</span><br><span class="line">    main.descricao DESPESA_ATUAL,</span><br><span class="line">    next.descricao <span class="keyword">as</span> DESPESA_POSTERIOR</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    despesas <span class="keyword">main</span> </span><br><span class="line">    <span class="keyword">left</span> <span class="keyword">join</span> despesas <span class="keyword">next</span> <span class="keyword">on</span> main.id = next.id - <span class="number">1</span></span><br><span class="line">    <span class="keyword">left</span> <span class="keyword">join</span> despesas prev <span class="keyword">on</span> main.id = prev.id + <span class="number">1</span></span><br><span class="line">    <span class="keyword">where</span></span><br><span class="line">        main.dia = <span class="number">3</span></span><br><span class="line">    <span class="keyword">order</span> <span class="keyword">by</span> main.dia;</span><br></pre></td></tr></table></figure>
+<p>Resultado:</p>
+<table>
+<thead>
+<tr>
+<th>DESPESA_ANTERIOR</th>
+<th>DESPESA_ATUAL</th>
+<th>DESPESA_POSTERIOR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gasolina</td>
+<td>Jantar</td>
+<td>Conta de água</td>
+</tr>
+</tbody>
+</table>
 
 
                 <ul class="share-buttons list-inline">
@@ -215,13 +310,9 @@
 
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/deploy-ionic-heroku/" data-toggle="tooltip" data-placement="top" title="Fazendo deploy de aplicativo Ionic no Heroku">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/typescript-construtor/" data-toggle="tooltip" data-placement="top" title="TypeScript - Declarando propriedades de uma classe direto no construtor">Next Post &rarr;</a>
+                            <a href="/debug-vscode-node-modules/" data-toggle="tooltip" data-placement="top" title="VS Code - Debugando módulos instalados em node_modules">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -254,11 +345,9 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#Tools" title="Tools">Tools</a>
+                          <a class="tag" href="/tags/#SQL" title="SQL">SQL</a>
                         
-                          <a class="tag" href="/tags/#VScode" title="VScode">VScode</a>
-                        
-                          <a class="tag" href="/tags/#Editors" title="Editors">Editors</a>
+                          <a class="tag" href="/tags/#DB" title="DB">DB</a>
                         
                     </div>
                 </section>
@@ -292,8 +381,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "devlogg";
-    var disqus_identifier = "http://devlog.com.br/usando-emmet-vscode/";
-    var disqus_url = "http://devlog.com.br/usando-emmet-vscode/";
+    var disqus_identifier = "http://devlog.com.br/sql-next-rows/";
+    var disqus_url = "http://devlog.com.br/sql-next-rows/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

@@ -191,24 +191,24 @@
 
                 <p>O uso de integração contínua é cada vez mais indispensável para garantir a qualidade e o de um projeto, especialmente se for opensource.</p>
 <h2 id="O-que-e-Integracao-Continua"><a href="#O-que-e-Integracao-Continua" class="headerlink" title="O que é Integração Contínua?"></a>O que é Integração Contínua?</h2><p>Em termos simples, integração contínua é a forma de garantir que seu projeto está funcionando a cada modificação do reposítorio, commit ou build. Este processo possibilita testar e fazer build do seu projeto em várias versões de runtime ou em vários ambientes de forma frequente, garantindo a qualidade e o funcionamento daquele módulo. Por exêmplo, a cada push para o GitHub a ferramenta irá clonar o projeto, baixar as dependências e executar os testes.<br>A ferramenta de integração contínua será tão eficiente quanto os testes implementados no seu projeto. Por isso é importante ter uma boa cobertura de testes.</p>
-<p>A ferramenta <a href="https://travis-ci.org/" target="_blank" rel="external">Travis CI</a> faz isso de forma fácil, rápida e simples de configurar. Para habilitar o Travis no seu repositório github é só seguir os passos a baixo.</p>
+<p>A ferramenta <a href="https://travis-ci.org/" target="_blank" rel="noopener">Travis CI</a> faz isso de forma fácil, rápida e simples de configurar. Para habilitar o Travis no seu repositório github é só seguir os passos a baixo.</p>
 <h2 id="Pre-requisitos"><a href="#Pre-requisitos" class="headerlink" title="Pré-requisitos"></a>Pré-requisitos</h2><ul>
 <li>Um projeto nodejs no github</li>
 <li>Implementação de testes</li>
 </ul>
-<p>Caso queira poderá clonar ou consultar o <a href="https://github.com/DevLogger/travis-ci-example" target="_blank" rel="external">repositório de exemplo</a> deste post no GitHub do Devlog</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone git@github.com:DevLogger/travis-ci-example.git</div></pre></td></tr></table></figure>
-<h2 id="Configurar-execucao-dos-testes-do-projeto-NodeJS"><a href="#Configurar-execucao-dos-testes-do-projeto-NodeJS" class="headerlink" title="Configurar execução dos testes do projeto NodeJS"></a>Configurar execução dos testes do projeto NodeJS</h2><p>O Travis CI roda por padrão o comando <strong>npm test</strong> para executar os testes do projeto.<br>Configure o sript <strong>test</strong> no seu <strong>package.json</strong> para executar os testes com sua ferramenta preferida. No exemplo abaixo usamos o <a href="https://mochajs.org/#getting-started" target="_blank" rel="external">Mocha</a> para execução dos testes.</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">"scripts": &#123;</div><div class="line">    "test": "mocha"</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="Criar-arquivo-travis-yml-na-raiz-do-projeto"><a href="#Criar-arquivo-travis-yml-na-raiz-do-projeto" class="headerlink" title="Criar arquivo .travis.yml na raiz do projeto"></a>Criar arquivo .travis.yml na raiz do projeto</h2><figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="attr">language:</span> node_js</div><div class="line"><span class="attr">node_js:</span></div><div class="line"><span class="bullet">  -</span> <span class="string">"5"</span></div><div class="line"><span class="bullet">  -</span> <span class="string">"6"</span></div><div class="line"><span class="bullet">  -</span> <span class="string">"7"</span></div></pre></td></tr></table></figure>
+<p>Caso queira poderá clonar ou consultar o <a href="https://github.com/DevLogger/travis-ci-example" target="_blank" rel="noopener">repositório de exemplo</a> deste post no GitHub do Devlog</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git@github.com:DevLogger/travis-ci-example.git</span><br></pre></td></tr></table></figure>
+<h2 id="Configurar-execucao-dos-testes-do-projeto-NodeJS"><a href="#Configurar-execucao-dos-testes-do-projeto-NodeJS" class="headerlink" title="Configurar execução dos testes do projeto NodeJS"></a>Configurar execução dos testes do projeto NodeJS</h2><p>O Travis CI roda por padrão o comando <strong>npm test</strong> para executar os testes do projeto.<br>Configure o sript <strong>test</strong> no seu <strong>package.json</strong> para executar os testes com sua ferramenta preferida. No exemplo abaixo usamos o <a href="https://mochajs.org/#getting-started" target="_blank" rel="noopener">Mocha</a> para execução dos testes.</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">"scripts": &#123;</span><br><span class="line">    "test": "mocha"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Criar-arquivo-travis-yml-na-raiz-do-projeto"><a href="#Criar-arquivo-travis-yml-na-raiz-do-projeto" class="headerlink" title="Criar arquivo .travis.yml na raiz do projeto"></a>Criar arquivo .travis.yml na raiz do projeto</h2><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">language:</span> <span class="string">node_js</span></span><br><span class="line"><span class="attr">node_js:</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">"5"</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">"6"</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">"7"</span></span><br></pre></td></tr></table></figure>
 <p>O campo <strong><em>node_js</em></strong> indica para quais versões do NodeJS queremos que o Travis CI rode o processo de integração contínua. Neste caso ele fará o build e rodará os testes 3 vezes: uma para versão 5, outra para versão 6 e outra para a versão 7 do NodeJS.</p>
 <p>Agora faça push de todas as alterações par ao GitHub</p>
 <h2 id="Criar-uma-conta-no-Travis"><a href="#Criar-uma-conta-no-Travis" class="headerlink" title="Criar uma conta no Travis"></a>Criar uma conta no Travis</h2><ul>
-<li>Acesse o site do <a href="https://travis-ci.org/" target="_blank" rel="external">Travis CI</a></li>
+<li>Acesse o site do <a href="https://travis-ci.org/" target="_blank" rel="noopener">Travis CI</a></li>
 <li>Crie uma conta. Podemos fazer o login através da conta do GitHub</li>
 <li>Habilite seu projeto</li>
 </ul>
-<h2 id="Teste"><a href="#Teste" class="headerlink" title="Teste"></a>Teste</h2><p>Agora faça uma modificação em algum arquivo, commite e faça um push para o GitHub.<br>Pronto, verifique lá no site do <a href="https://travis-ci.org/" target="_blank" rel="external">Travis CI</a> que ele está executando o build do seu projeto e executando os testes.</p>
+<h2 id="Teste"><a href="#Teste" class="headerlink" title="Teste"></a>Teste</h2><p>Agora faça uma modificação em algum arquivo, commite e faça um push para o GitHub.<br>Pronto, verifique lá no site do <a href="https://travis-ci.org/" target="_blank" rel="noopener">Travis CI</a> que ele está executando o build do seu projeto e executando os testes.</p>
 <p>Pronto! Seu projeto já estará rodando uma Integraçao Contínua.</p>
 <h1 id="Exibindo-Status-do-Build-no-GitHub"><a href="#Exibindo-Status-do-Build-no-GitHub" class="headerlink" title="Exibindo Status do Build no GitHub"></a>Exibindo Status do Build no GitHub</h1><ul>
 <li><p>No site do travis clique na imagem:<br><img src="build-status.png" alt="Build Status"></p>
@@ -216,7 +216,7 @@
 <li><p>Escola a opção markdown<br><img src="build-status2.png" alt="Build Status Markdown"></p>
 </li>
 <li><p>Coloque no seu readme.md</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[<span class="string">![Build Status</span>](<span class="link">https://travis-ci.org/linck/protontype.svg?branch=develop</span>)](<span class="link">https://travis-ci.org/linck/protontype</span>)</div><div class="line"></div><div class="line">Exemplo de Integração Contínua com Travis CI</div></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">![Build Status</span>](<span class="link">https://travis-ci.org/linck/protontype.svg?branch=develop</span>)](<span class="link">https://travis-ci.org/linck/protontype</span>)</span><br><span class="line"></span><br><span class="line">Exemplo de Integração Contínua com Travis CI</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Resultado<br><img src="build-status3.png" alt="Build Status Resultado"></p>
 </li>
@@ -241,6 +241,10 @@
                 
 
                 <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/debug-vscode-node-modules/" data-toggle="tooltip" data-placement="top" title="VS Code - Debugando módulos instalados em node_modules">&larr; Previous Post</a>
+                        </li>
                     
                     
                         <li class="next">
@@ -383,7 +387,7 @@
 
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; DevLog 2017 
+                    Copyright &copy; DevLog 2018 
                     <br>    
                     Developed with <span class="love">❤</span> by DevLog Team
                     <br> 

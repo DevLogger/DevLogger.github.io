@@ -7,8 +7,24 @@
     </url>
 
     <url>
+        <loc>http://devlog.com.br/debug-vscode-node-modules/</loc>
+        <lastmod>2018-04-22T17:02:05.507Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://devlog.com.br/typescript-construtor/</loc>
-        <lastmod>2017-04-23T23:41:10.000Z</lastmod>
+        <lastmod>2018-04-22T16:45:21.554Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://devlog.com.br/sql-next-rows/</loc>
+        <lastmod>2018-04-22T16:43:36.564Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -32,7 +48,7 @@
 
     <url>
         <loc>http://devlog.com.br/usando-travis-ci-github/</loc>
-        <lastmod>2017-04-23T23:39:53.642Z</lastmod>
+        <lastmod>2017-04-23T23:39:53.643Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -48,7 +64,7 @@
 
     <url>
         <loc>http://devlog.com.br/typescript-duplicate-identifier/</loc>
-        <lastmod>2017-04-23T23:37:50.217Z</lastmod>
+        <lastmod>2017-04-23T23:37:50.218Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

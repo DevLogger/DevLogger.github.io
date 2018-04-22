@@ -31,28 +31,21 @@
 
     <url>
         <loc>http://devlog.com.br/tags/Travis/</loc>
-        <lastmod>2017-04-23T23:39:53.642Z</lastmod>
+        <lastmod>2017-04-23T23:39:53.643Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://devlog.com.br/tags/CI/</loc>
-        <lastmod>2017-04-23T23:39:53.642Z</lastmod>
+        <lastmod>2017-04-23T23:39:53.643Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://devlog.com.br/tags/GitHub/</loc>
-        <lastmod>2017-04-23T23:39:53.642Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://devlog.com.br/tags/NodeJS/</loc>
-        <lastmod>2017-04-23T23:40:50.799Z</lastmod>
+        <lastmod>2017-04-23T23:39:53.643Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -72,29 +65,50 @@
     </url>
 
     <url>
-        <loc>http://devlog.com.br/tags/VScode/</loc>
-        <lastmod>2017-04-23T23:41:00.781Z</lastmod>
+        <loc>http://devlog.com.br/tags/SQL/</loc>
+        <lastmod>2018-04-22T16:43:36.564Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://devlog.com.br/tags/Editors/</loc>
-        <lastmod>2017-04-23T23:41:00.781Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://devlog.com.br/tags/Tools/</loc>
-        <lastmod>2017-04-23T23:41:00.781Z</lastmod>
+        <loc>http://devlog.com.br/tags/DB/</loc>
+        <lastmod>2018-04-22T16:43:36.564Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://devlog.com.br/tags/TypeScript/</loc>
-        <lastmod>2017-04-23T23:41:10.000Z</lastmod>
+        <lastmod>2018-04-22T16:45:21.554Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://devlog.com.br/tags/NodeJS/</loc>
+        <lastmod>2018-04-22T17:02:05.507Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://devlog.com.br/tags/Tools/</loc>
+        <lastmod>2018-04-22T17:02:05.507Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://devlog.com.br/tags/VScode/</loc>
+        <lastmod>2018-04-22T17:02:05.507Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://devlog.com.br/tags/Editors/</loc>
+        <lastmod>2018-04-22T17:02:05.507Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
