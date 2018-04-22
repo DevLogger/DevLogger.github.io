@@ -9,7 +9,7 @@ comments: true
 permalink: typescript-construtor
 ---
 
-O TypeScript nos dá uma funcionalidade legal vinda do C#: declarar as propriedades de uma class direto no construtor. Vamos entender melhor no exemplo.
+No TypeScript é possivel declarar as propriedades de uma classe direto no construtor. Vamos entender melhor no exemplo.
 
 O que normalmente faríamos assim:
 
