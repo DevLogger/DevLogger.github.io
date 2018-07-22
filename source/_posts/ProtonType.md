@@ -8,8 +8,8 @@ tags:
     - Sequelize
     - NodeJS
     - REST
-header-img: img/proton-1.jpg
-subtitle: Express + Sequelize + TypeScript = ProtonType
+header-img: img/proton-2.jpg
+subtitle: Construa sua API REST de forma fácil e organizada
 author: Humberto Machado
 comments: true
 permalink: crie-api-rest-protontype
@@ -17,18 +17,18 @@ permalink: crie-api-rest-protontype
 
 Protontype é um módulo Node que ajuda na criação de APIs RESTfull. Tem como objetivo facilitar a criação de objetos de banco de dados, rotas, middlewares e autenticação, tudo isso usando Typescript
 
-# Quick Start - Criando uma API em 5 passos
+# Quick Start
 
 ## Estrutura de pastas e configurações iniciais
 
 ```bash
-
     mkdir proton-quickstart
     cd proton-quickstart
     npm init
-    mkdir src
+    npm install typescript -g
     npm install protontype --save
-    
+    npm install sqlite3 --save
+    mkdir src
 ```
 
 Criar o arquivo tsconfig.json na raiz do projeto
@@ -37,10 +37,11 @@ Criar o arquivo tsconfig.json na raiz do projeto
 
     {
       "compilerOptions": {
-        "target": "es5",
+        "target": "es6",
         "module": "commonjs",
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
+        "esModuleInterop": true,
         "outDir": "dist"
       },
       "exclude": [
@@ -50,85 +51,103 @@ Criar o arquivo tsconfig.json na raiz do projeto
     }
     
 ```
- 
+
+Criar arquivo proton.json na raiz do projeto
+```json
+{
+  "servers": [
+    {
+      "port": 3001,
+      "useHttps": false
+    }
+  ],
+  "database": {
+    "name": "defaultTestConnection",
+    "type": "sqlite",
+    "database": "./proton.sqlite",
+    "synchronize": true,
+    "logging": false,
+    "entities": [
+      "./dist/models/**/*.js"
+    ]
+  },
+  "defaultRoutes": true,
+}
+```
+
 ## Model
 
-Criar um arquivo ParticlesModel.ts
+Criar um arquivo **src/models/TasksModel.ts**
 
-```javascript
+```typescript
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-    import { BaseModel, SequelizeBaseModelAttr, Model, DataTypes } from 'protontype';
-    
-    @Model({
-        name: "Particles",
-        definition: {
-            name: {
-                type: DataTypes.STRING
-            },
-            symbol: {
-                type: DataTypes.STRING
-            },
-            mass: {
-                type: DataTypes.BIGINT
-            }
-    
-        }
-    })
-    export class ParticlesModel extends BaseModel<Particle> {
-    
+@Entity()
+export class TasksModel {
+    @PrimaryGeneratedColumn()
+    id: number;
+    @Column({ nullable: true })
+    title: string;
+    @Column()
+    done: boolean;
+    @Column({ nullable: true })
+    userId: number;
+}
+```
+
+## Middleware
+Criar um arquivo **src/middlewares/TasksMiddleware.ts**
+```typescript
+import { ProtonMiddleware, Middleware, MiddlewareFunctionParams } from "protontype";
+
+export class TasksMiddleware extends ProtonMiddleware {
+
+    @Middleware()
+    sayHello(params: MiddlewareFunctionParams) {
+        console.log("Hello!");
+        params.next();
     }
-    
-    export interface Particle extends SequelizeBaseModelAttr {
-        name: string;
-        symbol: string;
-        mass: number;
-    }
-    
+}
 ```
 
 ## Router
 
-Criar arquivo ParticlesRouter.ts
+Criar arquivo **src/routers/TasksRouter.ts**
 
-```javascript
+```typescript
+import { RouterClass, TypeORMCrudRouter, BodyParserMiddleware } from 'protontype';
 
-    import { ParticlesModel } from './ParticlesModel';
-    import { BaseCrudRouter, RouterClass } from 'protontype';
-    
-    @RouterClass({
-        baseUrl: '/particles',
-        modelInstances: [new ParticlesModel()]
-    })
-    export class ParticlesRouter extends BaseCrudRouter {
-    
-    }
-    
+import { TasksModel } from '../models/TasksModel';
+import { TasksMiddleware } from '../middlewares/TasksMiddleware';
+
+@RouterClass({
+    baseUrl: "/tasks",
+    model: TasksModel,
+    middlewares: [new TasksMiddleware()]
+})
+export class TasksRouter extends TypeORMCrudRouter {
+
+}
 ```
-
- 
 
 ## Main
 
-Criar arquivo Main.ts
+Criar arquivo **src/Main.ts**
 
-```javascript
+```typescript
+import { TasksRouter } from './routers/TasksRouter';
+import { ProtonApplication } from 'protontype';
 
-    import { ParticlesRouter } from './ParticlesRouter';
-    import { ProtonApplication } from 'protontype';
-    
-    new ProtonApplication()
-        .addRouter(new ParticlesRouter())
-        .bootstrap();
-        
+new ProtonApplication()
+    .addRouter(new TasksRouter())
+    .start();
 ```
  
 
 **Compilando e Rodando Aplicação**
 ```bash
-
     tsc
-    node dist/Main.ts
-    
+    node dist/Main.js
 ```
  
 ## Testando a API
@@ -138,26 +157,14 @@ Será criado um arquivo proton.sqlite na raiz do projeto.
 
 Os endpoints abaixo já estarão disponíveis:
 
--   **GET /particles** - Lista todos os registos da tabela Particles
--   **POST /particles** - Cria um registro na tabela Particles
--   **GET /particles/:id** - Consulta um registro da tabela Particles
--   **PUT /particles/:id** - Atualiza um registro da tabela Particles
--   **DELETE /particles/:id** - Remove um registro da tabela Particles
+-   **GET http://localhost:3001/tasks** - Lista todos os registos da tabela Particles
+-   **POST http://localhost:3001/tasks** - Cria um registro na tabela Particles
+-   **GET http://localhost:3001/tasks/:id** - Consulta um registro da tabela Particles
+-   **PUT http://localhost:3001/tasks/:id** - Atualiza um registro da tabela Particles
+-   **DELETE http://localhost:3001/tasks/:id** - Remove um registro da tabela Particles
 
-Podera testar através do app [Postman](https://www.getpostman.com/ "") ou outro da sua preferência.
+Poderá testar através do app [Postman](https://www.getpostman.com/ "") ou outro da sua preferência.
 
-**Código completo do quick start**
+## Repositório
 
-<https://github.com/linck/proton-quickstart>
-
-## Exemplo
-
-<https://github.com/linck/protontype-example>
-
-## Projeto
-
-<https://github.com/linck/protontype>
-
-## Documentação 
-
-<https://linck.github.io/protontype-docs>
+<https://github.com/protontype/protontype-example>
