@@ -13,7 +13,7 @@ comments: true
 permalink: testando-apis-rest-postman
 ---
 
-Antes de qualquer coisa coloque esta música pra tocar [The Beatles - Mr Postman](https://www.youtube.com/watch?time_continue=15&v=58VIY1gBmns). Caso prefira pode  escutar pelo [Spotify](https://open.spotify.com/track/5IIBY9M2GxHcVja6DA6wsF)
+Antes de qualquer coisa coloque esta música pra tocar **The Beatles - Mr Postman**. Caso prefira pode  escutar pelo [Spotify](https://open.spotify.com/track/5IIBY9M2GxHcVja6DA6wsF)
 
 Agora sim, podemos testar nossa API com o este fantástico app: [Postman](https://www.getpostman.com/)
 
