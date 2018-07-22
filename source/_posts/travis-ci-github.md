@@ -57,7 +57,7 @@ node_js:
 
 O campo ***node_js*** indica para quais versões do NodeJS queremos que o Travis CI rode o processo de integração contínua. Neste caso ele fará o build e rodará os testes 3 vezes: uma para versão 5, outra para versão 6 e outra para a versão 7 do NodeJS.
 
-Agora faça push de todas as alterações par ao GitHub
+Agora faça push de todas as alterações para o GitHub
 
 ## Criar uma conta no Travis
 
