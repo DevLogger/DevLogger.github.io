@@ -15,11 +15,9 @@ permalink: testando-apis-rest-postman
 
 Antes de qualquer coisa coloque esta música pra tocar [The Beatles - Mr Postman](https://www.youtube.com/watch?time_continue=15&v=58VIY1gBmns). Caso prefira pode  escutar pelo [Spotify](https://open.spotify.com/track/5IIBY9M2GxHcVja6DA6wsF)
 
-Agora sim, podemos testar nossa API com o este fantástico chrome app: [Postman](https://www.getpostman.com/)
+Agora sim, podemos testar nossa API com o este fantástico app: [Postman](https://www.getpostman.com/)
 
 # Instalação
-
-Como já disse ali em cima, o [Postman](https://www.getpostman.com/) é um Chrome App, então, caso esteja usando Windows ou Linux você precisara ter o [Chrome instalado](https://www.google.com/chrome/). Caso esteja usando Mac poderá usar o app feito com o [Electron](http://electron.atom.io/) disponibilizado no site do [Postman](https://www.getpostman.com/). Então:
 
 1. Baixe o Postman aqui: https://www.getpostman.com/
 2. Divirta-se
